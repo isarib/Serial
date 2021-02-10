@@ -29,9 +29,9 @@ namespace Serial
         private string[] stopBitsStrList = { "1", "2" };
         private System.IO.Ports.StopBits[] stopBitsList = { System.IO.Ports.StopBits.One, System.IO.Ports.StopBits.Two };
 
-        private int miliseconds = 0, seconds = 0, minutes = 0;
+        private int deciseconds = 0, seconds = 0, minutes = 0;
         private bool send = false;
-        private string[] scalesList = { "Milisegundos", "Segundos", "Minutos" };
+        private string[] scalesList = { "Decimos de segundo", "Segundos", "Minutos" };
         private int sent = 0;
 
         private string rx;
@@ -216,8 +216,8 @@ namespace Serial
         {
             if (send)
             {
-                miliseconds += 1;
-                if (miliseconds == 1000)
+                deciseconds += 1;
+                if (deciseconds == 10)
                 {
                     seconds += 1;
                     if (seconds == 60)
@@ -243,13 +243,13 @@ namespace Serial
                         send_command();
                     }
                 }
-                else if (miliseconds > 1000)
+                else if (deciseconds > 10)
                 {
-                    miliseconds = 0;
+                    deciseconds = 0;
                 }
-                else if ((Scales.Text == scalesList[0]) && (miliseconds == numericUpDownTempo.Value))
+                else if ((Scales.Text == scalesList[0]) && (deciseconds == numericUpDownTempo.Value))
                 {
-                    miliseconds = 0;
+                    deciseconds = 0;
                     send_command();
                 }
             }
@@ -385,7 +385,14 @@ namespace Serial
                     send = false;
                     sent = 0;
                 }
-                serialPort.Write(Command.Text);
+                if (checkBoxCR.Checked)
+                {
+                    serialPort.Write(Command.Text + '\r');
+                }
+                else
+                {
+                    serialPort.Write(Command.Text);
+                }
             }
             else
             {

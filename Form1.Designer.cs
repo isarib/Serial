@@ -51,6 +51,7 @@
             this.Scales = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.Clear = new System.Windows.Forms.Button();
+            this.checkBoxCR = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
             this.SuspendLayout();
@@ -166,7 +167,7 @@
             // LabelQuantidade
             // 
             this.LabelQuantidade.AutoSize = true;
-            this.LabelQuantidade.Location = new System.Drawing.Point(41, 212);
+            this.LabelQuantidade.Location = new System.Drawing.Point(41, 191);
             this.LabelQuantidade.Name = "LabelQuantidade";
             this.LabelQuantidade.Size = new System.Drawing.Size(62, 13);
             this.LabelQuantidade.TabIndex = 10;
@@ -212,7 +213,7 @@
             // LabelTempo
             // 
             this.LabelTempo.AutoSize = true;
-            this.LabelTempo.Location = new System.Drawing.Point(42, 275);
+            this.LabelTempo.Location = new System.Drawing.Point(42, 239);
             this.LabelTempo.Name = "LabelTempo";
             this.LabelTempo.Size = new System.Drawing.Size(48, 13);
             this.LabelTempo.TabIndex = 16;
@@ -220,7 +221,7 @@
             // 
             // numericUpDownTempo
             // 
-            this.numericUpDownTempo.Location = new System.Drawing.Point(25, 324);
+            this.numericUpDownTempo.Location = new System.Drawing.Point(25, 288);
             this.numericUpDownTempo.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -242,7 +243,7 @@
             // 
             // numericUpDownQuantidade
             // 
-            this.numericUpDownQuantidade.Location = new System.Drawing.Point(25, 228);
+            this.numericUpDownQuantidade.Location = new System.Drawing.Point(25, 207);
             this.numericUpDownQuantidade.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -266,7 +267,7 @@
             // 
             this.Scales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Scales.FormattingEnabled = true;
-            this.Scales.Location = new System.Drawing.Point(25, 297);
+            this.Scales.Location = new System.Drawing.Point(25, 261);
             this.Scales.Name = "Scales";
             this.Scales.Size = new System.Drawing.Size(121, 21);
             this.Scales.TabIndex = 20;
@@ -277,7 +278,6 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Clear
@@ -290,11 +290,22 @@
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // checkBoxCR
+            // 
+            this.checkBoxCR.AutoSize = true;
+            this.checkBoxCR.Location = new System.Drawing.Point(25, 326);
+            this.checkBoxCR.Name = "checkBoxCR";
+            this.checkBoxCR.Size = new System.Drawing.Size(50, 17);
+            this.checkBoxCR.TabIndex = 23;
+            this.checkBoxCR.Text = "+ CR";
+            this.checkBoxCR.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxCR);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Scales);
             this.Controls.Add(this.numericUpDownQuantidade);
@@ -348,6 +359,7 @@
         private System.Windows.Forms.ComboBox Scales;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.CheckBox checkBoxCR;
     }
 }
 
