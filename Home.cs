@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Serial
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
-        public Form1()
+        public Home()
         {
             InitializeComponent();
             
@@ -404,6 +404,11 @@ namespace Serial
                 }
                 Enviar.Enabled = false;
             }
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)

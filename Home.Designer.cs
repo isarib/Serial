@@ -1,6 +1,6 @@
 ﻿namespace Serial
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.serialPort = new System.IO.Ports.SerialPort(this.components);
             this.labelStopBit = new System.Windows.Forms.Label();
             this.labelBaudRate = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@
             // labelStopBit
             // 
             this.labelStopBit.AutoSize = true;
+            this.labelStopBit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelStopBit.Location = new System.Drawing.Point(58, 45);
             this.labelStopBit.Name = "labelStopBit";
             this.labelStopBit.Size = new System.Drawing.Size(52, 13);
@@ -183,6 +185,9 @@
             // 
             // richTextBox
             // 
+            this.richTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox.Location = new System.Drawing.Point(174, 159);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ReadOnly = true;
@@ -300,10 +305,11 @@
             this.checkBoxCR.Text = "+ CR";
             this.checkBoxCR.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBoxCR);
             this.Controls.Add(this.Clear);
@@ -326,8 +332,10 @@
             this.Controls.Add(this.labelParity);
             this.Controls.Add(this.labelBaudRate);
             this.Controls.Add(this.labelStopBit);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Home";
+            this.Text = "Serial";
+            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).EndInit();
             this.ResumeLayout(false);

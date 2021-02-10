@@ -2,7 +2,6 @@ C:\Users\isari\OneDrive\Documentos\Serial\bin\Debug\Serial.exe.config
 C:\Users\isari\OneDrive\Documentos\Serial\bin\Debug\Serial.exe
 C:\Users\isari\OneDrive\Documentos\Serial\bin\Debug\Serial.pdb
 C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.csprojAssemblyReference.cache
-C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.Form1.resources
 C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.Properties.Resources.resources
 C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.csproj.GenerateResource.cache
 C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.csproj.CoreCompileInputs.cache
@@ -18,3 +17,4 @@ D:\Serial\obj\Debug\Serial.csproj.GenerateResource.cache
 D:\Serial\obj\Debug\Serial.csproj.CoreCompileInputs.cache
 D:\Serial\obj\Debug\Serial.exe
 D:\Serial\obj\Debug\Serial.pdb
+C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.Home.resources
