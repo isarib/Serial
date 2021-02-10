@@ -34,11 +34,6 @@ namespace Serial
         private string[] scalesList = { "Milisegundos", "Segundos", "Minutos" };
         private int sent = 0; 
 
-        private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
-        {
-            
-        }
-
         private bool hasInPorts(string Text) //
         {
             string[] ports = SerialPort.GetPortNames();
@@ -301,29 +296,47 @@ namespace Serial
 
         private void Connect_Click(object sender, EventArgs e)
         {
-            sent = 0;
-            send = false;
-            if ((validated & 2) == 2)
-            {
-                validated -= 2;
+            if (!serialPort.IsOpen)
+            { 
+                sent = 0;
+                send = false;
+                if ((validated & 2) == 2)
+                {
+                    validated -= 2;
+                }
+                Enviar.Enabled = false;
+                try
+                {
+                    serialPort.Open();
+                    Connect.Text = "Desconectar";
+                }
+                catch (Exception ex)
+                {
+                    validated -= 2;
+                    MessageBox.Show("Porta inválida.\r\n\r\n" + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Connect.Text = "Conectar";
+                }
+                finally
+                {
+                    if ((validated & 2) != 2)
+                    {
+                        validated += 2;
+                    }
+                    if (validated == 7)
+                    {
+                        Enviar.Enabled = true;
+                    }
+                }
             }
-            Enviar.Enabled = false;
-            try
+            else
             {
-                serialPort.Open();
-            }
-            catch (Exception ex)
-            {
-                validated -= 2;
-                MessageBox.Show("Porta inválida.\r\n\r\n" + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if ((validated & 2) == 2)
-            {
-                validated += 2;
-            }
-            if (validated == 7)
-            {
-                Enviar.Enabled = true;
+                serialPort.Close();
+                if ((validated & 2) == 2)
+                {
+                    validated -= 2;
+                }
+                Enviar.Enabled = false;
+                Connect.Text = "Conectar";
             }
         }
 
@@ -333,11 +346,11 @@ namespace Serial
             send_command();
         }
 
-        private void Command_TextChanged(object sender, EventArgs e)
+        private void Command_ModifiedChanged(object sender, EventArgs e)
         {
             if (Command.Text.Length > 0)
             {
-                if ((validated & 4) == 4)
+                if ((validated & 4) != 4)
                 {
                     validated += 4;
                 }
@@ -355,6 +368,11 @@ namespace Serial
             }
         }
 
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            richTextBox.Text = "";
+        }
+
         private void send_command()
         {
             if (serialPort.IsOpen)
@@ -365,6 +383,8 @@ namespace Serial
                     send = false;
                     sent = 0;
                 }
+                serialPort.DiscardOutBuffer();
+                serialPort.Write(Command.Text);
             }
             else
             {
@@ -376,6 +396,12 @@ namespace Serial
                 }
                 Enviar.Enabled = false;
             }
+        }
+
+        private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            richTextBox.Text += serialPort.ReadExisting() + '\n';
+            serialPort.DiscardInBuffer();
         }
 
     }

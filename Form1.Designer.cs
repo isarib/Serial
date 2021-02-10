@@ -42,7 +42,7 @@
             this.LabelCoomando = new System.Windows.Forms.Label();
             this.LabelQuantidade = new System.Windows.Forms.Label();
             this.Command = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.LabelLeitura = new System.Windows.Forms.Label();
             this.Enviar = new System.Windows.Forms.Button();
             this.LabelTempo = new System.Windows.Forms.Label();
@@ -50,6 +50,7 @@
             this.numericUpDownQuantidade = new System.Windows.Forms.NumericUpDown();
             this.Scales = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +124,7 @@
             this.Connect.Enabled = false;
             this.Connect.Location = new System.Drawing.Point(689, 59);
             this.Connect.Name = "Connect";
-            this.Connect.Size = new System.Drawing.Size(75, 23);
+            this.Connect.Size = new System.Drawing.Size(99, 23);
             this.Connect.TabIndex = 8;
             this.Connect.Text = "Conectar ";
             this.Connect.UseVisualStyleBackColor = true;
@@ -177,15 +178,16 @@
             this.Command.Name = "Command";
             this.Command.Size = new System.Drawing.Size(121, 20);
             this.Command.TabIndex = 11;
-            this.Command.TextChanged += new System.EventHandler(this.Command_TextChanged);
+            this.Command.ModifiedChanged += new System.EventHandler(this.Command_ModifiedChanged);
             // 
-            // richTextBox1
+            // richTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(174, 159);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(590, 228);
-            this.richTextBox1.TabIndex = 13;
-            this.richTextBox1.Text = "";
+            this.richTextBox.Location = new System.Drawing.Point(174, 159);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ReadOnly = true;
+            this.richTextBox.Size = new System.Drawing.Size(590, 228);
+            this.richTextBox.TabIndex = 13;
+            this.richTextBox.Text = "";
             // 
             // LabelLeitura
             // 
@@ -277,18 +279,29 @@
             this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(711, 127);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(53, 26);
+            this.Clear.TabIndex = 21;
+            this.Clear.Text = "Limpar";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.Scales);
             this.Controls.Add(this.numericUpDownQuantidade);
             this.Controls.Add(this.numericUpDownTempo);
             this.Controls.Add(this.LabelTempo);
             this.Controls.Add(this.Enviar);
             this.Controls.Add(this.LabelLeitura);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.Command);
             this.Controls.Add(this.LabelQuantidade);
             this.Controls.Add(this.LabelCoomando);
@@ -325,7 +338,7 @@
         private System.Windows.Forms.Label LabelCoomando;
         private System.Windows.Forms.Label LabelQuantidade;
         private System.Windows.Forms.TextBox Command;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.Label LabelLeitura;
         private System.Windows.Forms.Button Enviar;
         private System.Windows.Forms.Label LabelTempo;
@@ -333,6 +346,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownQuantidade;
         private System.Windows.Forms.ComboBox Scales;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button Clear;
     }
 }
 
