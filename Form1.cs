@@ -11,30 +11,32 @@ using System.Windows.Forms;
 
 namespace Serial
 {
-    public partial class Home : Form
+    public partial class Form1 : Form
     {
-        public Home()
+        public Form1()
         {
             InitializeComponent();
             
         }
-        private int verified = 0;
-        private int validated = 0;
+
+
+        private int verified = 0; //verificacao para conectar 
+        private int validated = 0; //verificacao para enviar
 
 
         //opçoes para a porta 
         private string[] parityList = {"Nenhuma","Ímpar", "Par"};
-        private string[] baudRateStrList = { "9600", "115200" };
-        private int[] baudRateIntList = { 9600, 115200 };
+        private string[] baudRateStrList = { "300", "1200", "9600", "115200" };
+        private int[] baudRateIntList = { 300, 1200, 9600, 115200 };
         private string[] stopBitsStrList = { "1", "2" };
         private System.IO.Ports.StopBits[] stopBitsList = { System.IO.Ports.StopBits.One, System.IO.Ports.StopBits.Two };
 
-        private int deciseconds = 0, seconds = 0, minutes = 0;
+        private int miliseconds = 0, seconds = 0, minutes = 0;
         private bool send = false;
-        private string[] scalesList = { "Décimos de segundo", "Segundos", "Minutos" };
+        private string[] scalesList = { "Milisegundos", "Segundos", "Minutos" };
         private int sent = 0;
 
-        private string rx;//recebido
+        private string RxString;
 
         private bool hasInPorts(string Text) //
         {
@@ -50,14 +52,14 @@ namespace Serial
             return false;
         }
 
-        private void Port_DropDown(object sender, EventArgs e)
+        private void Port_DropDown(object sender, EventArgs e) // portas disponiveis 
         {
             string[] ports = SerialPort.GetPortNames();
             Port.Items.Clear();
             Port.Items.AddRange(ports);
         }
 
-        private void Port_SelectionChangeCommitted(object sender, EventArgs e) 
+        private void Port_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (hasInPorts(Port.Text))
             {
@@ -216,8 +218,8 @@ namespace Serial
         {
             if (send)
             {
-                deciseconds += 1;
-                if (deciseconds == 10)
+                miliseconds += 1;
+                if (miliseconds == 1000)
                 {
                     seconds += 1;
                     if (seconds == 60)
@@ -237,19 +239,19 @@ namespace Serial
                     {
                         seconds = 0;
                     }
-                    if ((Scales.Text == scalesList[1]) && (seconds == numericUpDownTempo.Value))
+                    else if ((Scales.Text == scalesList[1]) && (seconds == numericUpDownTempo.Value))
                     {
                         seconds = 0;
                         send_command();
                     }
                 }
-                else if (deciseconds > 10)
+                else if (miliseconds > 1000)
                 {
-                    deciseconds = 0;
+                    miliseconds = 0;
                 }
-                else if ((Scales.Text == scalesList[0]) && (deciseconds == numericUpDownTempo.Value))
+                else if ((Scales.Text == scalesList[0]) && (miliseconds == numericUpDownTempo.Value))
                 {
-                    deciseconds = 0;
+                    miliseconds = 0;
                     send_command();
                 }
             }
@@ -298,10 +300,10 @@ namespace Serial
 
         private void Connect_Click(object sender, EventArgs e)
         {
-            if (!serialPort.IsOpen)
-            { 
-                sent = 0;
-                send = false;
+            sent = 0;
+            send = false;
+            if (serialPort.IsOpen == false)
+            {
                 if ((validated & 2) == 2)
                 {
                     validated -= 2;
@@ -310,36 +312,27 @@ namespace Serial
                 try
                 {
                     serialPort.Open();
-                    Connect.Text = "Desconectar";
                 }
                 catch (Exception ex)
                 {
                     validated -= 2;
                     MessageBox.Show("Porta inválida.\r\n\r\n" + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Connect.Text = "Conectar";
                 }
-                finally
-                {
-                    if ((validated & 2) != 2)
-                    {
-                        validated += 2;
-                    }
-                    if (validated == 7)
-                    {
-                        Enviar.Enabled = true;
-                    }
-                }
-            }
-            else
-            {
-                serialPort.Close();
                 if ((validated & 2) == 2)
                 {
-                    validated -= 2;
+                    validated += 2;
                 }
-                Enviar.Enabled = false;
-                Connect.Text = "Conectar";
+                if (validated == 7)
+                {
+                    Enviar.Enabled = true;
+                }
+                {
+                    Connect.Text = "Desconectar";
+                    Port.Enabled = false;
+
+                }
             }
+
         }
 
         private void Enviar_Click(object sender, EventArgs e)
@@ -348,11 +341,11 @@ namespace Serial
             send_command();
         }
 
-        private void Command_ModifiedChanged(object sender, EventArgs e)
+        private void Command_TextChanged(object sender, EventArgs e)
         {
             if (Command.Text.Length > 0)
             {
-                if ((validated & 4) != 4)
+                if ((validated & 4) == 4)
                 {
                     validated += 4;
                 }
@@ -368,11 +361,21 @@ namespace Serial
             {
                 Enviar.Enabled = true;
             }
-        }
+            else
+            {
 
-        private void Clear_Click(object sender, EventArgs e)
-        {
-            richTextBox.Text = "";
+                try
+                {
+                    serialPort.Close();
+                    Port.Enabled = true;
+                    Connect.Text = "Conectar";
+                }
+                catch
+                {
+                    return;
+                }
+
+            }
         }
 
         private void send_command()
@@ -384,14 +387,6 @@ namespace Serial
                 {
                     send = false;
                     sent = 0;
-                }
-                if (checkBoxCR.Checked)
-                {
-                    serialPort.Write(Command.Text + '\r');
-                }
-                else
-                {
-                    serialPort.Write(Command.Text);
                 }
             }
             else
@@ -406,19 +401,15 @@ namespace Serial
             }
         }
 
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            rx = serialPort.ReadExisting();
-            this.Invoke(new EventHandler(trataDadoRecebido));
+            RxString = serialPort.ReadExisting();              //le o dado disponível na serial
+            this.Invoke(new EventHandler(DadoRecebido));   //chama outra thread para escrever o dado no text box
         }
-        private void trataDadoRecebido(object sender, EventArgs e)
+        private void DadoRecebido(object sender, EventArgs e)
         {
-            richTextBox.AppendText(rx);
+            richTextBoxRecebeu.AppendText(RxString);
         }
+
     }
 }

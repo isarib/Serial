@@ -11,10 +11,10 @@ D:\Serial\bin\Debug\Serial.exe.config
 D:\Serial\bin\Debug\Serial.exe
 D:\Serial\bin\Debug\Serial.pdb
 D:\Serial\obj\Debug\Serial.csprojAssemblyReference.cache
-D:\Serial\obj\Debug\Serial.Form1.resources
 D:\Serial\obj\Debug\Serial.Properties.Resources.resources
 D:\Serial\obj\Debug\Serial.csproj.GenerateResource.cache
 D:\Serial\obj\Debug\Serial.csproj.CoreCompileInputs.cache
 D:\Serial\obj\Debug\Serial.exe
 D:\Serial\obj\Debug\Serial.pdb
 C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.Home.resources
+D:\Serial\obj\Debug\Serial.Home.resources
