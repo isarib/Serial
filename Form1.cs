@@ -32,7 +32,9 @@ namespace Serial
         private int miliseconds = 0, seconds = 0, minutes = 0;
         private bool send = false;
         private string[] scalesList = { "Milisegundos", "Segundos", "Minutos" };
-        private int sent = 0; 
+        private int sent = 0;
+
+        private string rx;
 
         private bool hasInPorts(string Text) //
         {
@@ -235,7 +237,7 @@ namespace Serial
                     {
                         seconds = 0;
                     }
-                    else if ((Scales.Text == scalesList[1]) && (seconds == numericUpDownTempo.Value))
+                    if ((Scales.Text == scalesList[1]) && (seconds == numericUpDownTempo.Value))
                     {
                         seconds = 0;
                         send_command();
@@ -383,7 +385,6 @@ namespace Serial
                     send = false;
                     sent = 0;
                 }
-                serialPort.DiscardOutBuffer();
                 serialPort.Write(Command.Text);
             }
             else
@@ -400,9 +401,12 @@ namespace Serial
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            richTextBox.Text += serialPort.ReadExisting() + '\n';
-            serialPort.DiscardInBuffer();
+            rx = serialPort.ReadExisting() + '\n';
+            this.Invoke(new EventHandler(trataDadoRecebido));
         }
-
+        private void trataDadoRecebido(object sender, EventArgs e)
+        {
+            richTextBox.AppendText(rx);
+        }
     }
 }
