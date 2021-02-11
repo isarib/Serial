@@ -31,224 +31,124 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.serialPort = new System.IO.Ports.SerialPort(this.components);
-            this.labelStopBit = new System.Windows.Forms.Label();
-            this.labelBaudRate = new System.Windows.Forms.Label();
-            this.labelParity = new System.Windows.Forms.Label();
-            this.labelPortName = new System.Windows.Forms.Label();
-            this.Parity = new System.Windows.Forms.ComboBox();
-            this.Port = new System.Windows.Forms.ComboBox();
-            this.Connect = new System.Windows.Forms.Button();
-            this.BaudRate = new System.Windows.Forms.ComboBox();
-            this.StopBits = new System.Windows.Forms.ComboBox();
-            this.LabelCoomando = new System.Windows.Forms.Label();
-            this.LabelQuantidade = new System.Windows.Forms.Label();
-            this.Command = new System.Windows.Forms.TextBox();
-            this.richTextBox = new System.Windows.Forms.RichTextBox();
-            this.LabelLeitura = new System.Windows.Forms.Label();
-            this.Enviar = new System.Windows.Forms.Button();
-            this.LabelTempo = new System.Windows.Forms.Label();
-            this.numericUpDownTempo = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownQuantidade = new System.Windows.Forms.NumericUpDown();
-            this.Scales = new System.Windows.Forms.ComboBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.Clear = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.modoGravação = new System.Windows.Forms.TabPage();
+            this.modoFuncional = new System.Windows.Forms.TabPage();
             this.checkBoxCR = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).BeginInit();
+            this.Clear = new System.Windows.Forms.Button();
+            this.Scales = new System.Windows.Forms.ComboBox();
+            this.numericUpDownQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownTempo = new System.Windows.Forms.NumericUpDown();
+            this.LabelTempo = new System.Windows.Forms.Label();
+            this.Enviar = new System.Windows.Forms.Button();
+            this.LabelLeitura = new System.Windows.Forms.Label();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.Command = new System.Windows.Forms.TextBox();
+            this.LabelQuantidade = new System.Windows.Forms.Label();
+            this.LabelCoomando = new System.Windows.Forms.Label();
+            this.StopBits = new System.Windows.Forms.ComboBox();
+            this.Connect = new System.Windows.Forms.Button();
+            this.Port = new System.Windows.Forms.ComboBox();
+            this.Parity = new System.Windows.Forms.ComboBox();
+            this.BaudRate = new System.Windows.Forms.ComboBox();
+            this.labelPortName = new System.Windows.Forms.Label();
+            this.labelParity = new System.Windows.Forms.Label();
+            this.labelBaudRate = new System.Windows.Forms.Label();
+            this.labelStopBit = new System.Windows.Forms.Label();
+            this.read = new System.Windows.Forms.Button();
+            this.tabControl1.SuspendLayout();
+            this.modoGravação.SuspendLayout();
+            this.modoFuncional.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort
             // 
             this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_DataReceived);
             // 
-            // labelStopBit
+            // timer
             // 
-            this.labelStopBit.AutoSize = true;
-            this.labelStopBit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelStopBit.Location = new System.Drawing.Point(58, 45);
-            this.labelStopBit.Name = "labelStopBit";
-            this.labelStopBit.Size = new System.Drawing.Size(52, 13);
-            this.labelStopBit.TabIndex = 0;
-            this.labelStopBit.Text = "Stop Bits ";
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // labelBaudRate
+            // tabControl1
             // 
-            this.labelBaudRate.AutoSize = true;
-            this.labelBaudRate.Location = new System.Drawing.Point(215, 45);
-            this.labelBaudRate.Name = "labelBaudRate";
-            this.labelBaudRate.Size = new System.Drawing.Size(61, 13);
-            this.labelBaudRate.TabIndex = 2;
-            this.labelBaudRate.Text = "Baud Rate ";
+            this.tabControl1.Controls.Add(this.modoGravação);
+            this.tabControl1.Controls.Add(this.modoFuncional);
+            this.tabControl1.Location = new System.Drawing.Point(12, 86);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(285, 393);
+            this.tabControl1.TabIndex = 0;
             // 
-            // labelParity
+            // modoGravação
             // 
-            this.labelParity.AutoSize = true;
-            this.labelParity.Location = new System.Drawing.Point(393, 45);
-            this.labelParity.Name = "labelParity";
-            this.labelParity.Size = new System.Drawing.Size(49, 13);
-            this.labelParity.TabIndex = 3;
-            this.labelParity.Text = "Paridade";
+            this.modoGravação.AutoScroll = true;
+            this.modoGravação.BackColor = System.Drawing.Color.White;
+            this.modoGravação.Controls.Add(this.checkBoxCR);
+            this.modoGravação.Controls.Add(this.Scales);
+            this.modoGravação.Controls.Add(this.numericUpDownQuantidade);
+            this.modoGravação.Controls.Add(this.numericUpDownTempo);
+            this.modoGravação.Controls.Add(this.LabelTempo);
+            this.modoGravação.Controls.Add(this.Enviar);
+            this.modoGravação.Controls.Add(this.Command);
+            this.modoGravação.Controls.Add(this.LabelQuantidade);
+            this.modoGravação.Controls.Add(this.LabelCoomando);
+            this.modoGravação.Location = new System.Drawing.Point(4, 22);
+            this.modoGravação.Name = "modoGravação";
+            this.modoGravação.Padding = new System.Windows.Forms.Padding(3);
+            this.modoGravação.Size = new System.Drawing.Size(277, 367);
+            this.modoGravação.TabIndex = 0;
+            this.modoGravação.Text = "Gravação";
             // 
-            // labelPortName
+            // modoFuncional
             // 
-            this.labelPortName.AutoSize = true;
-            this.labelPortName.Location = new System.Drawing.Point(566, 45);
-            this.labelPortName.Name = "labelPortName";
-            this.labelPortName.Size = new System.Drawing.Size(32, 13);
-            this.labelPortName.TabIndex = 4;
-            this.labelPortName.Text = "Porta";
+            this.modoFuncional.BackColor = System.Drawing.Color.White;
+            this.modoFuncional.Controls.Add(this.read);
+            this.modoFuncional.Location = new System.Drawing.Point(4, 22);
+            this.modoFuncional.Name = "modoFuncional";
+            this.modoFuncional.Padding = new System.Windows.Forms.Padding(3);
+            this.modoFuncional.Size = new System.Drawing.Size(277, 367);
+            this.modoFuncional.TabIndex = 1;
+            this.modoFuncional.Text = "Funcional";
             // 
-            // Parity
+            // checkBoxCR
             // 
-            this.Parity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Parity.FormattingEnabled = true;
-            this.Parity.Location = new System.Drawing.Point(354, 61);
-            this.Parity.Name = "Parity";
-            this.Parity.Size = new System.Drawing.Size(121, 21);
-            this.Parity.TabIndex = 6;
-            this.Parity.DropDown += new System.EventHandler(this.Parity_DropDown);
-            this.Parity.SelectionChangeCommitted += new System.EventHandler(this.Parity_SelectionChangeCommitted);
-            this.Parity.Click += new System.EventHandler(this.Parity_Click);
+            this.checkBoxCR.AutoSize = true;
+            this.checkBoxCR.Location = new System.Drawing.Point(10, 215);
+            this.checkBoxCR.Name = "checkBoxCR";
+            this.checkBoxCR.Size = new System.Drawing.Size(50, 17);
+            this.checkBoxCR.TabIndex = 44;
+            this.checkBoxCR.Text = "+ CR";
+            this.checkBoxCR.UseVisualStyleBackColor = true;
             // 
-            // Port
+            // Clear
             // 
-            this.Port.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Port.FormattingEnabled = true;
-            this.Port.Location = new System.Drawing.Point(520, 61);
-            this.Port.Name = "Port";
-            this.Port.Size = new System.Drawing.Size(121, 21);
-            this.Port.TabIndex = 7;
-            this.Port.DropDown += new System.EventHandler(this.Port_DropDown);
-            this.Port.SelectionChangeCommitted += new System.EventHandler(this.Port_SelectionChangeCommitted);
-            this.Port.Click += new System.EventHandler(this.Port_Click);
+            this.Clear.Location = new System.Drawing.Point(753, 89);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(53, 26);
+            this.Clear.TabIndex = 43;
+            this.Clear.Text = "Limpar";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.MouseCaptureChanged += new System.EventHandler(this.Clear_Click);
             // 
-            // Connect
+            // Scales
             // 
-            this.Connect.Enabled = false;
-            this.Connect.Location = new System.Drawing.Point(689, 59);
-            this.Connect.Name = "Connect";
-            this.Connect.Size = new System.Drawing.Size(99, 23);
-            this.Connect.TabIndex = 8;
-            this.Connect.Text = "Conectar ";
-            this.Connect.UseVisualStyleBackColor = true;
-            this.Connect.Click += new System.EventHandler(this.Connect_Click);
-            // 
-            // BaudRate
-            // 
-            this.BaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.BaudRate.FormattingEnabled = true;
-            this.BaudRate.Location = new System.Drawing.Point(184, 61);
-            this.BaudRate.Name = "BaudRate";
-            this.BaudRate.Size = new System.Drawing.Size(121, 21);
-            this.BaudRate.TabIndex = 5;
-            this.BaudRate.DropDown += new System.EventHandler(this.BaudRate_DropDown);
-            this.BaudRate.SelectionChangeCommitted += new System.EventHandler(this.BaudRate_SelectionChangeCommitted);
-            this.BaudRate.Click += new System.EventHandler(this.BaudRate_Click);
-            // 
-            // StopBits
-            // 
-            this.StopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.StopBits.FormattingEnabled = true;
-            this.StopBits.Location = new System.Drawing.Point(25, 61);
-            this.StopBits.Name = "StopBits";
-            this.StopBits.Size = new System.Drawing.Size(121, 21);
-            this.StopBits.TabIndex = 5;
-            this.StopBits.DropDown += new System.EventHandler(this.StopBits_DropDown);
-            this.StopBits.SelectionChangeCommitted += new System.EventHandler(this.StopBits_SelectionChangeCommitted);
-            this.StopBits.Click += new System.EventHandler(this.StopBits_Click);
-            // 
-            // LabelCoomando
-            // 
-            this.LabelCoomando.AutoSize = true;
-            this.LabelCoomando.Location = new System.Drawing.Point(41, 143);
-            this.LabelCoomando.Name = "LabelCoomando";
-            this.LabelCoomando.Size = new System.Drawing.Size(52, 13);
-            this.LabelCoomando.TabIndex = 9;
-            this.LabelCoomando.Text = "Comando";
-            // 
-            // LabelQuantidade
-            // 
-            this.LabelQuantidade.AutoSize = true;
-            this.LabelQuantidade.Location = new System.Drawing.Point(41, 191);
-            this.LabelQuantidade.Name = "LabelQuantidade";
-            this.LabelQuantidade.Size = new System.Drawing.Size(62, 13);
-            this.LabelQuantidade.TabIndex = 10;
-            this.LabelQuantidade.Text = "Quantidade";
-            // 
-            // Command
-            // 
-            this.Command.Location = new System.Drawing.Point(25, 159);
-            this.Command.Name = "Command";
-            this.Command.Size = new System.Drawing.Size(121, 20);
-            this.Command.TabIndex = 11;
-            this.Command.ModifiedChanged += new System.EventHandler(this.Command_ModifiedChanged);
-            // 
-            // richTextBox
-            // 
-            this.richTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richTextBox.Location = new System.Drawing.Point(174, 159);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.ReadOnly = true;
-            this.richTextBox.Size = new System.Drawing.Size(590, 228);
-            this.richTextBox.TabIndex = 13;
-            this.richTextBox.Text = "";
-            // 
-            // LabelLeitura
-            // 
-            this.LabelLeitura.AutoSize = true;
-            this.LabelLeitura.Location = new System.Drawing.Point(241, 143);
-            this.LabelLeitura.Name = "LabelLeitura";
-            this.LabelLeitura.Size = new System.Drawing.Size(39, 13);
-            this.LabelLeitura.TabIndex = 14;
-            this.LabelLeitura.Text = "Leitura";
-            // 
-            // Enviar
-            // 
-            this.Enviar.Enabled = false;
-            this.Enviar.Location = new System.Drawing.Point(44, 364);
-            this.Enviar.Name = "Enviar";
-            this.Enviar.Size = new System.Drawing.Size(75, 23);
-            this.Enviar.TabIndex = 15;
-            this.Enviar.Text = "Enviar";
-            this.Enviar.UseVisualStyleBackColor = true;
-            this.Enviar.Click += new System.EventHandler(this.Enviar_Click);
-            // 
-            // LabelTempo
-            // 
-            this.LabelTempo.AutoSize = true;
-            this.LabelTempo.Location = new System.Drawing.Point(42, 239);
-            this.LabelTempo.Name = "LabelTempo";
-            this.LabelTempo.Size = new System.Drawing.Size(48, 13);
-            this.LabelTempo.TabIndex = 16;
-            this.LabelTempo.Text = "Intervalo";
-            // 
-            // numericUpDownTempo
-            // 
-            this.numericUpDownTempo.Location = new System.Drawing.Point(25, 288);
-            this.numericUpDownTempo.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownTempo.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownTempo.Name = "numericUpDownTempo";
-            this.numericUpDownTempo.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownTempo.TabIndex = 18;
-            this.numericUpDownTempo.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.Scales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Scales.FormattingEnabled = true;
+            this.Scales.Location = new System.Drawing.Point(10, 148);
+            this.Scales.Name = "Scales";
+            this.Scales.Size = new System.Drawing.Size(121, 21);
+            this.Scales.TabIndex = 42;
+            this.Scales.DropDown += new System.EventHandler(this.Scales_DropDown);
+            this.Scales.SelectionChangeCommitted += new System.EventHandler(this.Scales_SelectionChangeCommitted);
+            this.Scales.Click += new System.EventHandler(this.Scales_Click);
             // 
             // numericUpDownQuantidade
             // 
-            this.numericUpDownQuantidade.Location = new System.Drawing.Point(25, 207);
+            this.numericUpDownQuantidade.Location = new System.Drawing.Point(10, 94);
             this.numericUpDownQuantidade.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -261,83 +161,237 @@
             0});
             this.numericUpDownQuantidade.Name = "numericUpDownQuantidade";
             this.numericUpDownQuantidade.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownQuantidade.TabIndex = 19;
+            this.numericUpDownQuantidade.TabIndex = 41;
             this.numericUpDownQuantidade.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // Scales
+            // numericUpDownTempo
             // 
-            this.Scales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Scales.FormattingEnabled = true;
-            this.Scales.Location = new System.Drawing.Point(25, 261);
-            this.Scales.Name = "Scales";
-            this.Scales.Size = new System.Drawing.Size(121, 21);
-            this.Scales.TabIndex = 20;
-            this.Scales.DropDown += new System.EventHandler(this.Scales_DropDown);
-            this.Scales.SelectionChangeCommitted += new System.EventHandler(this.Scales_SelectionChangeCommitted);
-            this.Scales.Click += new System.EventHandler(this.Scales_Click);
+            this.numericUpDownTempo.Location = new System.Drawing.Point(10, 175);
+            this.numericUpDownTempo.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownTempo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTempo.Name = "numericUpDownTempo";
+            this.numericUpDownTempo.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownTempo.TabIndex = 40;
+            this.numericUpDownTempo.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // timer
+            // LabelTempo
             // 
-            this.timer.Enabled = true;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.LabelTempo.AutoSize = true;
+            this.LabelTempo.Location = new System.Drawing.Point(40, 132);
+            this.LabelTempo.Name = "LabelTempo";
+            this.LabelTempo.Size = new System.Drawing.Size(48, 13);
+            this.LabelTempo.TabIndex = 39;
+            this.LabelTempo.Text = "Intervalo";
             // 
-            // Clear
+            // Enviar
             // 
-            this.Clear.Location = new System.Drawing.Point(711, 127);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(53, 26);
-            this.Clear.TabIndex = 21;
-            this.Clear.Text = "Limpar";
-            this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            this.Enviar.Enabled = false;
+            this.Enviar.Location = new System.Drawing.Point(20, 254);
+            this.Enviar.Name = "Enviar";
+            this.Enviar.Size = new System.Drawing.Size(75, 23);
+            this.Enviar.TabIndex = 38;
+            this.Enviar.Text = "Enviar";
+            this.Enviar.UseVisualStyleBackColor = true;
+            this.Enviar.Click += new System.EventHandler(this.Enviar_Click);
             // 
-            // checkBoxCR
+            // LabelLeitura
             // 
-            this.checkBoxCR.AutoSize = true;
-            this.checkBoxCR.Location = new System.Drawing.Point(25, 326);
-            this.checkBoxCR.Name = "checkBoxCR";
-            this.checkBoxCR.Size = new System.Drawing.Size(50, 17);
-            this.checkBoxCR.TabIndex = 23;
-            this.checkBoxCR.Text = "+ CR";
-            this.checkBoxCR.UseVisualStyleBackColor = true;
+            this.LabelLeitura.AutoSize = true;
+            this.LabelLeitura.Location = new System.Drawing.Point(368, 102);
+            this.LabelLeitura.Name = "LabelLeitura";
+            this.LabelLeitura.Size = new System.Drawing.Size(39, 13);
+            this.LabelLeitura.TabIndex = 37;
+            this.LabelLeitura.Text = "Leitura";
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.richTextBox.Location = new System.Drawing.Point(362, 121);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ReadOnly = true;
+            this.richTextBox.Size = new System.Drawing.Size(444, 320);
+            this.richTextBox.TabIndex = 36;
+            this.richTextBox.Text = "";
+            // 
+            // Command
+            // 
+            this.Command.Location = new System.Drawing.Point(10, 46);
+            this.Command.Name = "Command";
+            this.Command.Size = new System.Drawing.Size(121, 20);
+            this.Command.TabIndex = 35;
+            this.Command.ModifiedChanged += new System.EventHandler(this.Command_ModifiedChanged);
+            // 
+            // LabelQuantidade
+            // 
+            this.LabelQuantidade.AutoSize = true;
+            this.LabelQuantidade.Location = new System.Drawing.Point(33, 78);
+            this.LabelQuantidade.Name = "LabelQuantidade";
+            this.LabelQuantidade.Size = new System.Drawing.Size(62, 13);
+            this.LabelQuantidade.TabIndex = 34;
+            this.LabelQuantidade.Text = "Quantidade";
+            // 
+            // LabelCoomando
+            // 
+            this.LabelCoomando.AutoSize = true;
+            this.LabelCoomando.Location = new System.Drawing.Point(36, 30);
+            this.LabelCoomando.Name = "LabelCoomando";
+            this.LabelCoomando.Size = new System.Drawing.Size(52, 13);
+            this.LabelCoomando.TabIndex = 33;
+            this.LabelCoomando.Text = "Comando";
+            // 
+            // StopBits
+            // 
+            this.StopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StopBits.FormattingEnabled = true;
+            this.StopBits.Location = new System.Drawing.Point(36, 27);
+            this.StopBits.Name = "StopBits";
+            this.StopBits.Size = new System.Drawing.Size(121, 21);
+            this.StopBits.TabIndex = 29;
+            this.StopBits.DropDown += new System.EventHandler(this.StopBits_DropDown);
+            this.StopBits.SelectionChangeCommitted += new System.EventHandler(this.StopBits_SelectionChangeCommitted);
+            this.StopBits.Click += new System.EventHandler(this.StopBits_Click);
+            // 
+            // Connect
+            // 
+            this.Connect.BackColor = System.Drawing.Color.LightGreen;
+            this.Connect.Enabled = false;
+            this.Connect.Location = new System.Drawing.Point(707, 25);
+            this.Connect.Name = "Connect";
+            this.Connect.Size = new System.Drawing.Size(99, 23);
+            this.Connect.TabIndex = 32;
+            this.Connect.Text = "Conectar ";
+            this.Connect.UseVisualStyleBackColor = false;
+            this.Connect.Click += new System.EventHandler(this.Connect_Click);
+            // 
+            // Port
+            // 
+            this.Port.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Port.FormattingEnabled = true;
+            this.Port.Location = new System.Drawing.Point(558, 27);
+            this.Port.Name = "Port";
+            this.Port.Size = new System.Drawing.Size(121, 21);
+            this.Port.TabIndex = 31;
+            this.Port.DropDown += new System.EventHandler(this.Port_DropDown);
+            this.Port.SelectionChangeCommitted += new System.EventHandler(this.Port_SelectionChangeCommitted);
+            this.Port.Click += new System.EventHandler(this.Port_Click);
+            // 
+            // Parity
+            // 
+            this.Parity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Parity.FormattingEnabled = true;
+            this.Parity.Location = new System.Drawing.Point(390, 27);
+            this.Parity.Name = "Parity";
+            this.Parity.Size = new System.Drawing.Size(121, 21);
+            this.Parity.TabIndex = 30;
+            this.Parity.DropDown += new System.EventHandler(this.Parity_DropDown);
+            this.Parity.SelectionChangeCommitted += new System.EventHandler(this.Parity_SelectionChangeCommitted);
+            this.Parity.Click += new System.EventHandler(this.Parity_Click);
+            // 
+            // BaudRate
+            // 
+            this.BaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BaudRate.FormattingEnabled = true;
+            this.BaudRate.Location = new System.Drawing.Point(209, 27);
+            this.BaudRate.Name = "BaudRate";
+            this.BaudRate.Size = new System.Drawing.Size(121, 21);
+            this.BaudRate.TabIndex = 28;
+            this.BaudRate.DropDown += new System.EventHandler(this.BaudRate_DropDown);
+            this.BaudRate.SelectionChangeCommitted += new System.EventHandler(this.BaudRate_SelectionChangeCommitted);
+            this.BaudRate.Click += new System.EventHandler(this.BaudRate_Click);
+            // 
+            // labelPortName
+            // 
+            this.labelPortName.AutoSize = true;
+            this.labelPortName.Location = new System.Drawing.Point(598, 11);
+            this.labelPortName.Name = "labelPortName";
+            this.labelPortName.Size = new System.Drawing.Size(32, 13);
+            this.labelPortName.TabIndex = 27;
+            this.labelPortName.Text = "Porta";
+            // 
+            // labelParity
+            // 
+            this.labelParity.AutoSize = true;
+            this.labelParity.Location = new System.Drawing.Point(426, 11);
+            this.labelParity.Name = "labelParity";
+            this.labelParity.Size = new System.Drawing.Size(49, 13);
+            this.labelParity.TabIndex = 26;
+            this.labelParity.Text = "Paridade";
+            // 
+            // labelBaudRate
+            // 
+            this.labelBaudRate.AutoSize = true;
+            this.labelBaudRate.Location = new System.Drawing.Point(236, 11);
+            this.labelBaudRate.Name = "labelBaudRate";
+            this.labelBaudRate.Size = new System.Drawing.Size(61, 13);
+            this.labelBaudRate.TabIndex = 25;
+            this.labelBaudRate.Text = "Baud Rate ";
+            // 
+            // labelStopBit
+            // 
+            this.labelStopBit.AutoSize = true;
+            this.labelStopBit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelStopBit.Location = new System.Drawing.Point(71, 11);
+            this.labelStopBit.Name = "labelStopBit";
+            this.labelStopBit.Size = new System.Drawing.Size(52, 13);
+            this.labelStopBit.TabIndex = 24;
+            this.labelStopBit.Text = "Stop Bits ";
+            // 
+            // read
+            // 
+            this.read.Location = new System.Drawing.Point(32, 27);
+            this.read.Name = "read";
+            this.read.Size = new System.Drawing.Size(75, 23);
+            this.read.TabIndex = 0;
+            this.read.Text = "Ler";
+            this.read.UseVisualStyleBackColor = true;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(818, 523);
-            this.Controls.Add(this.checkBoxCR);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Clear);
-            this.Controls.Add(this.Scales);
-            this.Controls.Add(this.numericUpDownQuantidade);
-            this.Controls.Add(this.numericUpDownTempo);
-            this.Controls.Add(this.LabelTempo);
-            this.Controls.Add(this.Enviar);
-            this.Controls.Add(this.LabelLeitura);
-            this.Controls.Add(this.richTextBox);
-            this.Controls.Add(this.Command);
-            this.Controls.Add(this.LabelQuantidade);
-            this.Controls.Add(this.LabelCoomando);
-            this.Controls.Add(this.StopBits);
-            this.Controls.Add(this.Connect);
             this.Controls.Add(this.Port);
-            this.Controls.Add(this.Parity);
-            this.Controls.Add(this.BaudRate);
-            this.Controls.Add(this.labelPortName);
-            this.Controls.Add(this.labelParity);
-            this.Controls.Add(this.labelBaudRate);
             this.Controls.Add(this.labelStopBit);
+            this.Controls.Add(this.labelBaudRate);
+            this.Controls.Add(this.labelParity);
+            this.Controls.Add(this.LabelLeitura);
+            this.Controls.Add(this.labelPortName);
+            this.Controls.Add(this.BaudRate);
+            this.Controls.Add(this.Parity);
+            this.Controls.Add(this.richTextBox);
+            this.Controls.Add(this.Connect);
+            this.Controls.Add(this.StopBits);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.Text = "Serial";
             this.Load += new System.EventHandler(this.Home_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.modoGravação.ResumeLayout(false);
+            this.modoGravação.PerformLayout();
+            this.modoFuncional.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,28 +400,32 @@
         #endregion
 
         private System.IO.Ports.SerialPort serialPort;
-        private System.Windows.Forms.Label labelStopBit;
-        private System.Windows.Forms.Label labelBaudRate;
-        private System.Windows.Forms.Label labelParity;
-        private System.Windows.Forms.Label labelPortName;
-        private System.Windows.Forms.ComboBox Parity;
-        private System.Windows.Forms.ComboBox Port;
-        private System.Windows.Forms.Button Connect;
-        private System.Windows.Forms.ComboBox BaudRate;
-        private System.Windows.Forms.ComboBox StopBits;
-        private System.Windows.Forms.Label LabelCoomando;
-        private System.Windows.Forms.Label LabelQuantidade;
-        private System.Windows.Forms.TextBox Command;
-        private System.Windows.Forms.RichTextBox richTextBox;
-        private System.Windows.Forms.Label LabelLeitura;
-        private System.Windows.Forms.Button Enviar;
-        private System.Windows.Forms.Label LabelTempo;
-        private System.Windows.Forms.NumericUpDown numericUpDownTempo;
-        private System.Windows.Forms.NumericUpDown numericUpDownQuantidade;
-        private System.Windows.Forms.ComboBox Scales;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage modoGravação;
         private System.Windows.Forms.CheckBox checkBoxCR;
+        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.ComboBox Scales;
+        private System.Windows.Forms.NumericUpDown numericUpDownQuantidade;
+        private System.Windows.Forms.NumericUpDown numericUpDownTempo;
+        private System.Windows.Forms.Label LabelTempo;
+        private System.Windows.Forms.Button Enviar;
+        private System.Windows.Forms.Label LabelLeitura;
+        private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.TextBox Command;
+        private System.Windows.Forms.Label LabelQuantidade;
+        private System.Windows.Forms.Label LabelCoomando;
+        private System.Windows.Forms.ComboBox StopBits;
+        private System.Windows.Forms.Button Connect;
+        private System.Windows.Forms.ComboBox Port;
+        private System.Windows.Forms.ComboBox Parity;
+        private System.Windows.Forms.ComboBox BaudRate;
+        private System.Windows.Forms.Label labelPortName;
+        private System.Windows.Forms.Label labelParity;
+        private System.Windows.Forms.Label labelBaudRate;
+        private System.Windows.Forms.Label labelStopBit;
+        private System.Windows.Forms.TabPage modoFuncional;
+        private System.Windows.Forms.Button read;
     }
 }
 

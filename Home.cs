@@ -311,12 +311,14 @@ namespace Serial
                 {
                     serialPort.Open();
                     Connect.Text = "Desconectar";
+                    this.Connect.BackColor = Color.DarkSalmon;
                 }
                 catch (Exception ex)
                 {
                     validated -= 2;
                     MessageBox.Show("Porta inválida.\r\n\r\n" + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Connect.Text = "Conectar";
+                    this.Connect.BackColor = Color.LightGreen;
                 }
                 finally
                 {
@@ -339,6 +341,7 @@ namespace Serial
                 }
                 Enviar.Enabled = false;
                 Connect.Text = "Conectar";
+                this.Connect.BackColor = Color.LightGreen;
             }
         }
 
