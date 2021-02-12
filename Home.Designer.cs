@@ -63,6 +63,7 @@
             this.numericUpDownOffset = new System.Windows.Forms.NumericUpDown();
             this.Enviar = new System.Windows.Forms.Button();
             this.Gravar = new System.Windows.Forms.Button();
+            this.LerCalib = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.modoDeComando.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
@@ -87,7 +88,7 @@
             this.tabControl1.Controls.Add(this.modoDeComando);
             this.tabControl1.Controls.Add(this.modoCalibracao);
             this.tabControl1.Controls.Add(this.modoFuncional);
-            this.tabControl1.Location = new System.Drawing.Point(12, 86);
+            this.tabControl1.Location = new System.Drawing.Point(36, 92);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(285, 393);
@@ -364,6 +365,7 @@
             // 
             // modoCalibracao
             // 
+            this.modoCalibracao.Controls.Add(this.LerCalib);
             this.modoCalibracao.Controls.Add(this.Gravar);
             this.modoCalibracao.Controls.Add(this.numericUpDownOffset);
             this.modoCalibracao.Controls.Add(this.numericUpDownGanho);
@@ -444,12 +446,21 @@
             // Gravar
             // 
             this.Gravar.Enabled = false;
-            this.Gravar.Location = new System.Drawing.Point(95, 102);
+            this.Gravar.Location = new System.Drawing.Point(20, 112);
             this.Gravar.Name = "Gravar";
             this.Gravar.Size = new System.Drawing.Size(75, 23);
             this.Gravar.TabIndex = 39;
             this.Gravar.Text = "Gravar";
             this.Gravar.UseVisualStyleBackColor = true;
+            // 
+            // LerCalib
+            // 
+            this.LerCalib.Location = new System.Drawing.Point(162, 112);
+            this.LerCalib.Name = "LerCalib";
+            this.LerCalib.Size = new System.Drawing.Size(75, 23);
+            this.LerCalib.TabIndex = 40;
+            this.LerCalib.Text = "Ler";
+            this.LerCalib.UseVisualStyleBackColor = true;
             // 
             // Home
             // 
@@ -523,6 +534,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownGanho;
         private System.Windows.Forms.Button Enviar;
         private System.Windows.Forms.Button Gravar;
+        private System.Windows.Forms.Button LerCalib;
     }
 }
 
