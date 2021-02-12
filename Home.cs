@@ -409,11 +409,6 @@ namespace Serial
             }
         }
 
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             rx = serialPort.ReadExisting();
@@ -423,5 +418,6 @@ namespace Serial
         {
             richTextBox.AppendText(rx);
         }
+
     }
 }
