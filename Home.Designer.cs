@@ -43,6 +43,14 @@
             this.Command = new System.Windows.Forms.TextBox();
             this.LabelQuantidade = new System.Windows.Forms.Label();
             this.LabelCoomando = new System.Windows.Forms.Label();
+            this.modoCalibracao = new System.Windows.Forms.TabPage();
+            this.buttonLeituraCalib = new System.Windows.Forms.Button();
+            this.buttonGravarOffset = new System.Windows.Forms.Button();
+            this.buttonGravarGanho = new System.Windows.Forms.Button();
+            this.numericUpDownOffset = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownganho = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxOffset = new System.Windows.Forms.CheckBox();
+            this.checkBoxGanho = new System.Windows.Forms.CheckBox();
             this.modoFuncional = new System.Windows.Forms.TabPage();
             this.read = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
@@ -57,22 +65,14 @@
             this.labelParity = new System.Windows.Forms.Label();
             this.labelBaudRate = new System.Windows.Forms.Label();
             this.labelStopBit = new System.Windows.Forms.Label();
-            this.modoCalibracao = new System.Windows.Forms.TabPage();
-            this.checkBoxGanho = new System.Windows.Forms.CheckBox();
-            this.checkBoxOffset = new System.Windows.Forms.CheckBox();
-            this.numericUpDownganho = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownOffset = new System.Windows.Forms.NumericUpDown();
-            this.buttonGravarGanho = new System.Windows.Forms.Button();
-            this.buttonGravarOffset = new System.Windows.Forms.Button();
-            this.buttonLeituraCalib = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.modoGravação.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).BeginInit();
-            this.modoFuncional.SuspendLayout();
             this.modoCalibracao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).BeginInit();
+            this.modoFuncional.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
@@ -227,6 +227,111 @@
             this.LabelCoomando.TabIndex = 33;
             this.LabelCoomando.Text = "Comando";
             // 
+            // modoCalibracao
+            // 
+            this.modoCalibracao.Controls.Add(this.buttonLeituraCalib);
+            this.modoCalibracao.Controls.Add(this.buttonGravarOffset);
+            this.modoCalibracao.Controls.Add(this.buttonGravarGanho);
+            this.modoCalibracao.Controls.Add(this.numericUpDownOffset);
+            this.modoCalibracao.Controls.Add(this.numericUpDownganho);
+            this.modoCalibracao.Controls.Add(this.checkBoxOffset);
+            this.modoCalibracao.Controls.Add(this.checkBoxGanho);
+            this.modoCalibracao.Location = new System.Drawing.Point(4, 22);
+            this.modoCalibracao.Name = "modoCalibracao";
+            this.modoCalibracao.Size = new System.Drawing.Size(277, 367);
+            this.modoCalibracao.TabIndex = 2;
+            this.modoCalibracao.Text = "Calibração";
+            this.modoCalibracao.UseVisualStyleBackColor = true;
+            // 
+            // buttonLeituraCalib
+            // 
+            this.buttonLeituraCalib.Enabled = false;
+            this.buttonLeituraCalib.Location = new System.Drawing.Point(89, 161);
+            this.buttonLeituraCalib.Name = "buttonLeituraCalib";
+            this.buttonLeituraCalib.Size = new System.Drawing.Size(91, 23);
+            this.buttonLeituraCalib.TabIndex = 6;
+            this.buttonLeituraCalib.Text = "Leitura";
+            this.buttonLeituraCalib.UseVisualStyleBackColor = true;
+            this.buttonLeituraCalib.Click += new System.EventHandler(this.buttonLeituraCalib_Click);
+            // 
+            // buttonGravarOffset
+            // 
+            this.buttonGravarOffset.Enabled = false;
+            this.buttonGravarOffset.Location = new System.Drawing.Point(164, 112);
+            this.buttonGravarOffset.Name = "buttonGravarOffset";
+            this.buttonGravarOffset.Size = new System.Drawing.Size(91, 23);
+            this.buttonGravarOffset.TabIndex = 5;
+            this.buttonGravarOffset.Text = "Gravar Offset";
+            this.buttonGravarOffset.UseVisualStyleBackColor = true;
+            // 
+            // buttonGravarGanho
+            // 
+            this.buttonGravarGanho.Enabled = false;
+            this.buttonGravarGanho.Location = new System.Drawing.Point(20, 112);
+            this.buttonGravarGanho.Name = "buttonGravarGanho";
+            this.buttonGravarGanho.Size = new System.Drawing.Size(87, 23);
+            this.buttonGravarGanho.TabIndex = 4;
+            this.buttonGravarGanho.Text = "Gravar Ganho";
+            this.buttonGravarGanho.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownOffset
+            // 
+            this.numericUpDownOffset.DecimalPlaces = 4;
+            this.numericUpDownOffset.Enabled = false;
+            this.numericUpDownOffset.Location = new System.Drawing.Point(164, 62);
+            this.numericUpDownOffset.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownOffset.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownOffset.Name = "numericUpDownOffset";
+            this.numericUpDownOffset.Size = new System.Drawing.Size(91, 20);
+            this.numericUpDownOffset.TabIndex = 3;
+            // 
+            // numericUpDownganho
+            // 
+            this.numericUpDownganho.DecimalPlaces = 4;
+            this.numericUpDownganho.Enabled = false;
+            this.numericUpDownganho.Location = new System.Drawing.Point(20, 62);
+            this.numericUpDownganho.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownganho.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownganho.Name = "numericUpDownganho";
+            this.numericUpDownganho.Size = new System.Drawing.Size(87, 20);
+            this.numericUpDownganho.TabIndex = 2;
+            // 
+            // checkBoxOffset
+            // 
+            this.checkBoxOffset.AutoSize = true;
+            this.checkBoxOffset.Location = new System.Drawing.Point(164, 39);
+            this.checkBoxOffset.Name = "checkBoxOffset";
+            this.checkBoxOffset.Size = new System.Drawing.Size(54, 17);
+            this.checkBoxOffset.TabIndex = 1;
+            this.checkBoxOffset.Text = "Offset";
+            this.checkBoxOffset.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxGanho
+            // 
+            this.checkBoxGanho.AutoSize = true;
+            this.checkBoxGanho.Location = new System.Drawing.Point(20, 39);
+            this.checkBoxGanho.Name = "checkBoxGanho";
+            this.checkBoxGanho.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxGanho.TabIndex = 0;
+            this.checkBoxGanho.Text = "Ganho ";
+            this.checkBoxGanho.UseVisualStyleBackColor = true;
+            // 
             // modoFuncional
             // 
             this.modoFuncional.BackColor = System.Drawing.Color.White;
@@ -375,112 +480,6 @@
             this.labelStopBit.TabIndex = 24;
             this.labelStopBit.Text = "Stop Bits ";
             // 
-            // modoCalibracao
-            // 
-            this.modoCalibracao.Controls.Add(this.buttonLeituraCalib);
-            this.modoCalibracao.Controls.Add(this.buttonGravarOffset);
-            this.modoCalibracao.Controls.Add(this.buttonGravarGanho);
-            this.modoCalibracao.Controls.Add(this.numericUpDownOffset);
-            this.modoCalibracao.Controls.Add(this.numericUpDownganho);
-            this.modoCalibracao.Controls.Add(this.checkBoxOffset);
-            this.modoCalibracao.Controls.Add(this.checkBoxGanho);
-            this.modoCalibracao.Location = new System.Drawing.Point(4, 22);
-            this.modoCalibracao.Name = "modoCalibracao";
-            this.modoCalibracao.Size = new System.Drawing.Size(277, 367);
-            this.modoCalibracao.TabIndex = 2;
-            this.modoCalibracao.Text = "Calibração";
-            this.modoCalibracao.UseVisualStyleBackColor = true;
-            this.modoCalibracao.Click += new System.EventHandler(this.modoCalibracao_Click);
-            // 
-            // checkBoxGanho
-            // 
-            this.checkBoxGanho.AutoSize = true;
-            this.checkBoxGanho.Location = new System.Drawing.Point(20, 39);
-            this.checkBoxGanho.Name = "checkBoxGanho";
-            this.checkBoxGanho.Size = new System.Drawing.Size(61, 17);
-            this.checkBoxGanho.TabIndex = 0;
-            this.checkBoxGanho.Text = "Ganho ";
-            this.checkBoxGanho.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxOffset
-            // 
-            this.checkBoxOffset.AutoSize = true;
-            this.checkBoxOffset.Location = new System.Drawing.Point(164, 39);
-            this.checkBoxOffset.Name = "checkBoxOffset";
-            this.checkBoxOffset.Size = new System.Drawing.Size(54, 17);
-            this.checkBoxOffset.TabIndex = 1;
-            this.checkBoxOffset.Text = "Offset";
-            this.checkBoxOffset.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDownganho
-            // 
-            this.numericUpDownganho.DecimalPlaces = 4;
-            this.numericUpDownganho.Enabled = false;
-            this.numericUpDownganho.Location = new System.Drawing.Point(20, 62);
-            this.numericUpDownganho.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownganho.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownganho.Name = "numericUpDownganho";
-            this.numericUpDownganho.Size = new System.Drawing.Size(87, 20);
-            this.numericUpDownganho.TabIndex = 2;
-            // 
-            // numericUpDownOffset
-            // 
-            this.numericUpDownOffset.DecimalPlaces = 4;
-            this.numericUpDownOffset.Enabled = false;
-            this.numericUpDownOffset.Location = new System.Drawing.Point(164, 62);
-            this.numericUpDownOffset.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownOffset.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownOffset.Name = "numericUpDownOffset";
-            this.numericUpDownOffset.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDownOffset.TabIndex = 3;
-            // 
-            // buttonGravarGanho
-            // 
-            this.buttonGravarGanho.Enabled = false;
-            this.buttonGravarGanho.Location = new System.Drawing.Point(20, 112);
-            this.buttonGravarGanho.Name = "buttonGravarGanho";
-            this.buttonGravarGanho.Size = new System.Drawing.Size(87, 23);
-            this.buttonGravarGanho.TabIndex = 4;
-            this.buttonGravarGanho.Text = "Gravar Ganho";
-            this.buttonGravarGanho.UseVisualStyleBackColor = true;
-            // 
-            // buttonGravarOffset
-            // 
-            this.buttonGravarOffset.Enabled = false;
-            this.buttonGravarOffset.Location = new System.Drawing.Point(164, 112);
-            this.buttonGravarOffset.Name = "buttonGravarOffset";
-            this.buttonGravarOffset.Size = new System.Drawing.Size(91, 23);
-            this.buttonGravarOffset.TabIndex = 5;
-            this.buttonGravarOffset.Text = "Gravar Offset";
-            this.buttonGravarOffset.UseVisualStyleBackColor = true;
-            // 
-            // buttonLeituraCalib
-            // 
-            this.buttonLeituraCalib.Enabled = false;
-            this.buttonLeituraCalib.Location = new System.Drawing.Point(89, 161);
-            this.buttonLeituraCalib.Name = "buttonLeituraCalib";
-            this.buttonLeituraCalib.Size = new System.Drawing.Size(91, 23);
-            this.buttonLeituraCalib.TabIndex = 6;
-            this.buttonLeituraCalib.Text = "Leitura";
-            this.buttonLeituraCalib.UseVisualStyleBackColor = true;
-            this.buttonLeituraCalib.Click += new System.EventHandler(this.buttonLeituraCalib_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,11 +507,11 @@
             this.modoGravação.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).EndInit();
-            this.modoFuncional.ResumeLayout(false);
             this.modoCalibracao.ResumeLayout(false);
             this.modoCalibracao.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).EndInit();
+            this.modoFuncional.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
