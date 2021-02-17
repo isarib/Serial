@@ -34,19 +34,20 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.modoGravação = new System.Windows.Forms.TabPage();
-            this.modoFuncional = new System.Windows.Forms.TabPage();
             this.checkBoxCR = new System.Windows.Forms.CheckBox();
-            this.Clear = new System.Windows.Forms.Button();
             this.Scales = new System.Windows.Forms.ComboBox();
             this.numericUpDownQuantidade = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTempo = new System.Windows.Forms.NumericUpDown();
             this.LabelTempo = new System.Windows.Forms.Label();
             this.Enviar = new System.Windows.Forms.Button();
-            this.LabelLeitura = new System.Windows.Forms.Label();
-            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.Command = new System.Windows.Forms.TextBox();
             this.LabelQuantidade = new System.Windows.Forms.Label();
             this.LabelCoomando = new System.Windows.Forms.Label();
+            this.modoFuncional = new System.Windows.Forms.TabPage();
+            this.read = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
+            this.LabelLeitura = new System.Windows.Forms.Label();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.StopBits = new System.Windows.Forms.ComboBox();
             this.Connect = new System.Windows.Forms.Button();
             this.Port = new System.Windows.Forms.ComboBox();
@@ -56,12 +57,22 @@
             this.labelParity = new System.Windows.Forms.Label();
             this.labelBaudRate = new System.Windows.Forms.Label();
             this.labelStopBit = new System.Windows.Forms.Label();
-            this.read = new System.Windows.Forms.Button();
+            this.modoCalibracao = new System.Windows.Forms.TabPage();
+            this.checkBoxGanho = new System.Windows.Forms.CheckBox();
+            this.checkBoxOffset = new System.Windows.Forms.CheckBox();
+            this.numericUpDownganho = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownOffset = new System.Windows.Forms.NumericUpDown();
+            this.buttonGravarGanho = new System.Windows.Forms.Button();
+            this.buttonGravarOffset = new System.Windows.Forms.Button();
+            this.buttonLeituraCalib = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.modoGravação.SuspendLayout();
-            this.modoFuncional.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).BeginInit();
+            this.modoFuncional.SuspendLayout();
+            this.modoCalibracao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort
@@ -76,8 +87,9 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.modoGravação);
+            this.tabControl1.Controls.Add(this.modoCalibracao);
             this.tabControl1.Controls.Add(this.modoFuncional);
-            this.tabControl1.Location = new System.Drawing.Point(12, 86);
+            this.tabControl1.Location = new System.Drawing.Point(12, 89);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(285, 393);
@@ -103,17 +115,6 @@
             this.modoGravação.TabIndex = 0;
             this.modoGravação.Text = "Gravação";
             // 
-            // modoFuncional
-            // 
-            this.modoFuncional.BackColor = System.Drawing.Color.White;
-            this.modoFuncional.Controls.Add(this.read);
-            this.modoFuncional.Location = new System.Drawing.Point(4, 22);
-            this.modoFuncional.Name = "modoFuncional";
-            this.modoFuncional.Padding = new System.Windows.Forms.Padding(3);
-            this.modoFuncional.Size = new System.Drawing.Size(277, 367);
-            this.modoFuncional.TabIndex = 1;
-            this.modoFuncional.Text = "Funcional";
-            // 
             // checkBoxCR
             // 
             this.checkBoxCR.AutoSize = true;
@@ -123,16 +124,6 @@
             this.checkBoxCR.TabIndex = 44;
             this.checkBoxCR.Text = "+ CR";
             this.checkBoxCR.UseVisualStyleBackColor = true;
-            // 
-            // Clear
-            // 
-            this.Clear.Location = new System.Drawing.Point(753, 89);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(53, 26);
-            this.Clear.TabIndex = 43;
-            this.Clear.Text = "Limpar";
-            this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.MouseCaptureChanged += new System.EventHandler(this.Clear_Click);
             // 
             // Scales
             // 
@@ -210,27 +201,6 @@
             this.Enviar.UseVisualStyleBackColor = true;
             this.Enviar.Click += new System.EventHandler(this.Enviar_Click);
             // 
-            // LabelLeitura
-            // 
-            this.LabelLeitura.AutoSize = true;
-            this.LabelLeitura.Location = new System.Drawing.Point(368, 102);
-            this.LabelLeitura.Name = "LabelLeitura";
-            this.LabelLeitura.Size = new System.Drawing.Size(39, 13);
-            this.LabelLeitura.TabIndex = 37;
-            this.LabelLeitura.Text = "Leitura";
-            // 
-            // richTextBox
-            // 
-            this.richTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richTextBox.Location = new System.Drawing.Point(362, 121);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.ReadOnly = true;
-            this.richTextBox.Size = new System.Drawing.Size(444, 320);
-            this.richTextBox.TabIndex = 36;
-            this.richTextBox.Text = "";
-            // 
             // Command
             // 
             this.Command.Location = new System.Drawing.Point(10, 46);
@@ -256,6 +226,57 @@
             this.LabelCoomando.Size = new System.Drawing.Size(52, 13);
             this.LabelCoomando.TabIndex = 33;
             this.LabelCoomando.Text = "Comando";
+            // 
+            // modoFuncional
+            // 
+            this.modoFuncional.BackColor = System.Drawing.Color.White;
+            this.modoFuncional.Controls.Add(this.read);
+            this.modoFuncional.Location = new System.Drawing.Point(4, 22);
+            this.modoFuncional.Name = "modoFuncional";
+            this.modoFuncional.Padding = new System.Windows.Forms.Padding(3);
+            this.modoFuncional.Size = new System.Drawing.Size(277, 367);
+            this.modoFuncional.TabIndex = 1;
+            this.modoFuncional.Text = "Funcional";
+            // 
+            // read
+            // 
+            this.read.Location = new System.Drawing.Point(32, 27);
+            this.read.Name = "read";
+            this.read.Size = new System.Drawing.Size(75, 23);
+            this.read.TabIndex = 0;
+            this.read.Text = "Ler";
+            this.read.UseVisualStyleBackColor = true;
+            // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(753, 73);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(53, 26);
+            this.Clear.TabIndex = 43;
+            this.Clear.Text = "Limpar";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.MouseCaptureChanged += new System.EventHandler(this.Clear_Click);
+            // 
+            // LabelLeitura
+            // 
+            this.LabelLeitura.AutoSize = true;
+            this.LabelLeitura.Location = new System.Drawing.Point(404, 89);
+            this.LabelLeitura.Name = "LabelLeitura";
+            this.LabelLeitura.Size = new System.Drawing.Size(39, 13);
+            this.LabelLeitura.TabIndex = 37;
+            this.LabelLeitura.Text = "Leitura";
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.richTextBox.Location = new System.Drawing.Point(407, 105);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ReadOnly = true;
+            this.richTextBox.Size = new System.Drawing.Size(399, 373);
+            this.richTextBox.TabIndex = 36;
+            this.richTextBox.Text = "";
             // 
             // StopBits
             // 
@@ -354,14 +375,111 @@
             this.labelStopBit.TabIndex = 24;
             this.labelStopBit.Text = "Stop Bits ";
             // 
-            // read
+            // modoCalibracao
             // 
-            this.read.Location = new System.Drawing.Point(32, 27);
-            this.read.Name = "read";
-            this.read.Size = new System.Drawing.Size(75, 23);
-            this.read.TabIndex = 0;
-            this.read.Text = "Ler";
-            this.read.UseVisualStyleBackColor = true;
+            this.modoCalibracao.Controls.Add(this.buttonLeituraCalib);
+            this.modoCalibracao.Controls.Add(this.buttonGravarOffset);
+            this.modoCalibracao.Controls.Add(this.buttonGravarGanho);
+            this.modoCalibracao.Controls.Add(this.numericUpDownOffset);
+            this.modoCalibracao.Controls.Add(this.numericUpDownganho);
+            this.modoCalibracao.Controls.Add(this.checkBoxOffset);
+            this.modoCalibracao.Controls.Add(this.checkBoxGanho);
+            this.modoCalibracao.Location = new System.Drawing.Point(4, 22);
+            this.modoCalibracao.Name = "modoCalibracao";
+            this.modoCalibracao.Size = new System.Drawing.Size(277, 367);
+            this.modoCalibracao.TabIndex = 2;
+            this.modoCalibracao.Text = "Calibração";
+            this.modoCalibracao.UseVisualStyleBackColor = true;
+            this.modoCalibracao.Click += new System.EventHandler(this.modoCalibracao_Click);
+            // 
+            // checkBoxGanho
+            // 
+            this.checkBoxGanho.AutoSize = true;
+            this.checkBoxGanho.Location = new System.Drawing.Point(20, 39);
+            this.checkBoxGanho.Name = "checkBoxGanho";
+            this.checkBoxGanho.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxGanho.TabIndex = 0;
+            this.checkBoxGanho.Text = "Ganho ";
+            this.checkBoxGanho.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxOffset
+            // 
+            this.checkBoxOffset.AutoSize = true;
+            this.checkBoxOffset.Location = new System.Drawing.Point(164, 39);
+            this.checkBoxOffset.Name = "checkBoxOffset";
+            this.checkBoxOffset.Size = new System.Drawing.Size(54, 17);
+            this.checkBoxOffset.TabIndex = 1;
+            this.checkBoxOffset.Text = "Offset";
+            this.checkBoxOffset.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownganho
+            // 
+            this.numericUpDownganho.DecimalPlaces = 4;
+            this.numericUpDownganho.Enabled = false;
+            this.numericUpDownganho.Location = new System.Drawing.Point(20, 62);
+            this.numericUpDownganho.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownganho.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownganho.Name = "numericUpDownganho";
+            this.numericUpDownganho.Size = new System.Drawing.Size(87, 20);
+            this.numericUpDownganho.TabIndex = 2;
+            // 
+            // numericUpDownOffset
+            // 
+            this.numericUpDownOffset.DecimalPlaces = 4;
+            this.numericUpDownOffset.Enabled = false;
+            this.numericUpDownOffset.Location = new System.Drawing.Point(164, 62);
+            this.numericUpDownOffset.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownOffset.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownOffset.Name = "numericUpDownOffset";
+            this.numericUpDownOffset.Size = new System.Drawing.Size(91, 20);
+            this.numericUpDownOffset.TabIndex = 3;
+            // 
+            // buttonGravarGanho
+            // 
+            this.buttonGravarGanho.Enabled = false;
+            this.buttonGravarGanho.Location = new System.Drawing.Point(20, 112);
+            this.buttonGravarGanho.Name = "buttonGravarGanho";
+            this.buttonGravarGanho.Size = new System.Drawing.Size(87, 23);
+            this.buttonGravarGanho.TabIndex = 4;
+            this.buttonGravarGanho.Text = "Gravar Ganho";
+            this.buttonGravarGanho.UseVisualStyleBackColor = true;
+            // 
+            // buttonGravarOffset
+            // 
+            this.buttonGravarOffset.Enabled = false;
+            this.buttonGravarOffset.Location = new System.Drawing.Point(164, 112);
+            this.buttonGravarOffset.Name = "buttonGravarOffset";
+            this.buttonGravarOffset.Size = new System.Drawing.Size(91, 23);
+            this.buttonGravarOffset.TabIndex = 5;
+            this.buttonGravarOffset.Text = "Gravar Offset";
+            this.buttonGravarOffset.UseVisualStyleBackColor = true;
+            // 
+            // buttonLeituraCalib
+            // 
+            this.buttonLeituraCalib.Enabled = false;
+            this.buttonLeituraCalib.Location = new System.Drawing.Point(89, 161);
+            this.buttonLeituraCalib.Name = "buttonLeituraCalib";
+            this.buttonLeituraCalib.Size = new System.Drawing.Size(91, 23);
+            this.buttonLeituraCalib.TabIndex = 6;
+            this.buttonLeituraCalib.Text = "Leitura";
+            this.buttonLeituraCalib.UseVisualStyleBackColor = true;
+            this.buttonLeituraCalib.Click += new System.EventHandler(this.buttonLeituraCalib_Click);
             // 
             // Home
             // 
@@ -385,13 +503,16 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.Text = "Serial";
-            this.Load += new System.EventHandler(this.Home_Load);
             this.tabControl1.ResumeLayout(false);
             this.modoGravação.ResumeLayout(false);
             this.modoGravação.PerformLayout();
-            this.modoFuncional.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTempo)).EndInit();
+            this.modoFuncional.ResumeLayout(false);
+            this.modoCalibracao.ResumeLayout(false);
+            this.modoCalibracao.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,6 +547,14 @@
         private System.Windows.Forms.Label labelStopBit;
         private System.Windows.Forms.TabPage modoFuncional;
         private System.Windows.Forms.Button read;
+        private System.Windows.Forms.TabPage modoCalibracao;
+        private System.Windows.Forms.Button buttonLeituraCalib;
+        private System.Windows.Forms.Button buttonGravarOffset;
+        private System.Windows.Forms.Button buttonGravarGanho;
+        private System.Windows.Forms.NumericUpDown numericUpDownOffset;
+        private System.Windows.Forms.NumericUpDown numericUpDownganho;
+        private System.Windows.Forms.CheckBox checkBoxOffset;
+        private System.Windows.Forms.CheckBox checkBoxGanho;
     }
 }
 

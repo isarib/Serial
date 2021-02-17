@@ -409,9 +409,35 @@ namespace Serial
             }
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private void modoCalibracao_Click(object sender, EventArgs e)
         {
+            if (serialPort.IsOpen)
+            {
+                buttonLeituraCalib.Enabled = true; 
+                if (checkBoxGanho.Checked)
+                {
+                    numericUpDownganho.Enabled = true;
+                    serialPort.Write("x\r");
+                }
+                else
+                {
+                    numericUpDownganho.Enabled = false;
+                }
+                if (checkBoxOffset.Checked)
+                {
+                    numericUpDownOffset.Enabled = true;
+                    serialPort.Write("y\r");
+                }
+                else
+                {
+                    numericUpDownOffset.Enabled = false;
+                }
+            }
+        }
 
+        private void buttonLeituraCalib_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("xy\r");
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
