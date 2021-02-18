@@ -18,3 +18,13 @@ D:\Serial\obj\Debug\Serial.exe
 D:\Serial\obj\Debug\Serial.pdb
 C:\Users\isari\OneDrive\Documentos\Serial\obj\Debug\Serial.Home.resources
 D:\Serial\obj\Debug\Serial.Home.resources
+E:\Serial\bin\Debug\Serial.exe.config
+E:\Serial\bin\Debug\Serial.exe
+E:\Serial\bin\Debug\Serial.pdb
+E:\Serial\obj\Debug\Serial.csprojAssemblyReference.cache
+E:\Serial\obj\Debug\Serial.Home.resources
+E:\Serial\obj\Debug\Serial.Properties.Resources.resources
+E:\Serial\obj\Debug\Serial.csproj.GenerateResource.cache
+E:\Serial\obj\Debug\Serial.csproj.CoreCompileInputs.cache
+E:\Serial\obj\Debug\Serial.exe
+E:\Serial\obj\Debug\Serial.pdb

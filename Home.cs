@@ -409,11 +409,20 @@ namespace Serial
             }
         }
 
-        private void modoCalibracao_Click(object sender, EventArgs e)
+        
+
+        private void buttonLeituraCalib_Click(object sender, EventArgs e)
         {
-            if (serialPort.IsOpen)
+            serialPort.Write("xy\r");
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabControl1.TabPages["modoCalibracao"])
             {
-                buttonLeituraCalib.Enabled = true; 
+               // if (serialPort.IsOpen)
+                //{
+                buttonLeituraCalib.Enabled = true;
                 if (checkBoxGanho.Checked)
                 {
                     numericUpDownganho.Enabled = true;
@@ -423,21 +432,24 @@ namespace Serial
                 {
                     numericUpDownganho.Enabled = false;
                 }
+
                 if (checkBoxOffset.Checked)
-                {
-                    numericUpDownOffset.Enabled = true;
-                    serialPort.Write("y\r");
-                }
-                else
-                {
-                    numericUpDownOffset.Enabled = false;
-                }
-            }
+                    {
+                        numericUpDownOffset.Enabled = true;
+                        serialPort.Write("y\r");
+                    }
+                    else
+                    {
+                        numericUpDownOffset.Enabled = false;
+                    }
+                //}
+            }  
+
         }
 
-        private void buttonLeituraCalib_Click(object sender, EventArgs e)
+        private void checkBoxGanho_CheckedChanged(object sender, EventArgs e)
         {
-            serialPort.Write("xy\r");
+            
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
