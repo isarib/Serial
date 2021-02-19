@@ -52,6 +52,7 @@
             this.checkBoxOffset = new System.Windows.Forms.CheckBox();
             this.checkBoxGanho = new System.Windows.Forms.CheckBox();
             this.modoFuncional = new System.Windows.Forms.TabPage();
+            this.checkBoxLer = new System.Windows.Forms.CheckBox();
             this.Clear = new System.Windows.Forms.Button();
             this.LabelLeitura = new System.Windows.Forms.Label();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -64,7 +65,6 @@
             this.labelParity = new System.Windows.Forms.Label();
             this.labelBaudRate = new System.Windows.Forms.Label();
             this.labelStopBit = new System.Windows.Forms.Label();
-            this.checkBoxLer = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.modoGravação.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
@@ -94,7 +94,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(285, 393);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // modoGravação
             // 
@@ -330,7 +329,6 @@
             this.checkBoxGanho.TabIndex = 2;
             this.checkBoxGanho.Text = "Ganho ";
             this.checkBoxGanho.UseVisualStyleBackColor = true;
-            this.checkBoxGanho.CheckedChanged += new System.EventHandler(this.checkBoxGanho_CheckedChanged);
             // 
             // modoFuncional
             // 
@@ -342,6 +340,16 @@
             this.modoFuncional.Size = new System.Drawing.Size(277, 367);
             this.modoFuncional.TabIndex = 1;
             this.modoFuncional.Text = "Funcional";
+            // 
+            // checkBoxLer
+            // 
+            this.checkBoxLer.AutoSize = true;
+            this.checkBoxLer.Location = new System.Drawing.Point(20, 32);
+            this.checkBoxLer.Name = "checkBoxLer";
+            this.checkBoxLer.Size = new System.Drawing.Size(41, 17);
+            this.checkBoxLer.TabIndex = 1;
+            this.checkBoxLer.Text = "Ler";
+            this.checkBoxLer.UseVisualStyleBackColor = true;
             // 
             // Clear
             // 
@@ -471,16 +479,6 @@
             this.labelStopBit.TabIndex = 24;
             this.labelStopBit.Text = "Stop Bits ";
             // 
-            // checkBoxLer
-            // 
-            this.checkBoxLer.AutoSize = true;
-            this.checkBoxLer.Location = new System.Drawing.Point(20, 32);
-            this.checkBoxLer.Name = "checkBoxLer";
-            this.checkBoxLer.Size = new System.Drawing.Size(41, 17);
-            this.checkBoxLer.TabIndex = 1;
-            this.checkBoxLer.Text = "Ler";
-            this.checkBoxLer.UseVisualStyleBackColor = true;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,7 +521,6 @@
 
         private System.IO.Ports.SerialPort serialPort;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage modoGravação;
         private System.Windows.Forms.CheckBox checkBoxCR;
         private System.Windows.Forms.Button Clear;
@@ -556,6 +553,7 @@
         private System.Windows.Forms.CheckBox checkBoxOffset;
         private System.Windows.Forms.CheckBox checkBoxGanho;
         private System.Windows.Forms.CheckBox checkBoxLer;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 

@@ -36,7 +36,7 @@ namespace Serial
 
         private string rx;//recebido
 
-        private bool hasInPorts(string Text) //
+        private bool hasInPorts(string Text) 
         {
             string[] ports = SerialPort.GetPortNames();
             for (int i = 0; i < ports.Length; i++)
@@ -413,14 +413,13 @@ namespace Serial
 
         private void buttonLeituraCalib_Click(object sender, EventArgs e)
         {
-            serialPort.Write("xy\r");
+            serialPort.Write("x\r");
+
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedTab == tabControl1.TabPages["modoCalibracao"])
-            {
-               // if (serialPort.IsOpen)
+           /*if (tabControl1.SelectedTab == tabControl1.TabPages["modoCalibracao"])
+            //{
+                // if (serialPort.IsOpen)
                 //{
                 buttonLeituraCalib.Enabled = true;
                 if (checkBoxGanho.Checked)
@@ -434,23 +433,19 @@ namespace Serial
                 }
 
                 if (checkBoxOffset.Checked)
-                    {
-                        numericUpDownOffset.Enabled = true;
-                        serialPort.Write("y\r");
-                    }
-                    else
-                    {
-                        numericUpDownOffset.Enabled = false;
-                    }
+                {
+                    numericUpDownOffset.Enabled = true;
+                    serialPort.Write("y\r");
+                }
+                else
+                {
+                    numericUpDownOffset.Enabled = false;
+                }
                 //}
-            }  
+           //}*/
 
-        }
+        
 
-        private void checkBoxGanho_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
