@@ -114,6 +114,8 @@
             // checkBoxCR
             // 
             this.checkBoxCR.AutoSize = true;
+            this.checkBoxCR.Checked = true;
+            this.checkBoxCR.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCR.Location = new System.Drawing.Point(10, 215);
             this.checkBoxCR.Name = "checkBoxCR";
             this.checkBoxCR.Size = new System.Drawing.Size(50, 17);
@@ -241,7 +243,7 @@
             // labelOffset
             // 
             this.labelOffset.AutoSize = true;
-            this.labelOffset.Location = new System.Drawing.Point(161, 32);
+            this.labelOffset.Location = new System.Drawing.Point(159, 32);
             this.labelOffset.Name = "labelOffset";
             this.labelOffset.Size = new System.Drawing.Size(35, 13);
             this.labelOffset.TabIndex = 8;
@@ -259,7 +261,7 @@
             // buttonGravarOffset
             // 
             this.buttonGravarOffset.Enabled = false;
-            this.buttonGravarOffset.Location = new System.Drawing.Point(164, 112);
+            this.buttonGravarOffset.Location = new System.Drawing.Point(162, 112);
             this.buttonGravarOffset.Name = "buttonGravarOffset";
             this.buttonGravarOffset.Size = new System.Drawing.Size(91, 23);
             this.buttonGravarOffset.TabIndex = 5;
@@ -281,7 +283,12 @@
             // numericUpDownOffset
             // 
             this.numericUpDownOffset.DecimalPlaces = 4;
-            this.numericUpDownOffset.Location = new System.Drawing.Point(164, 62);
+            this.numericUpDownOffset.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            262144});
+            this.numericUpDownOffset.Location = new System.Drawing.Point(162, 62);
             this.numericUpDownOffset.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -299,6 +306,11 @@
             // numericUpDownganho
             // 
             this.numericUpDownganho.DecimalPlaces = 4;
+            this.numericUpDownganho.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            262144});
             this.numericUpDownganho.Location = new System.Drawing.Point(20, 62);
             this.numericUpDownganho.Maximum = new decimal(new int[] {
             1000,
@@ -317,6 +329,8 @@
             // checkBoxLer
             // 
             this.checkBoxLer.AutoSize = true;
+            this.checkBoxLer.Checked = true;
+            this.checkBoxLer.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLer.Location = new System.Drawing.Point(684, 79);
             this.checkBoxLer.Name = "checkBoxLer";
             this.checkBoxLer.Size = new System.Drawing.Size(41, 17);

@@ -307,11 +307,15 @@ namespace Serial
                     validated -= 2;
                 }
                 Enviar.Enabled = false;
+                buttonGravarGanho.Enabled = false;
+                buttonGravarOffset.Enabled = false;
                 try
                 {
                     serialPort.Open();
                     Connect.Text = "Desconectar";
                     this.Connect.BackColor = Color.DarkSalmon;
+                    buttonGravarGanho.Enabled = true;
+                    buttonGravarOffset.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -329,6 +333,7 @@ namespace Serial
                     if (validated == 7)
                     {
                         Enviar.Enabled = true;
+                   
                     }
                 }
             }
@@ -340,6 +345,9 @@ namespace Serial
                     validated -= 2;
                 }
                 Enviar.Enabled = false;
+                buttonGravarGanho.Enabled = false;
+                buttonGravarOffset.Enabled = false;
+
                 Connect.Text = "Conectar";
                 this.Connect.BackColor = Color.LightGreen;
             }
@@ -370,6 +378,7 @@ namespace Serial
             if (validated == 7)
             {
                 Enviar.Enabled = true;
+
             }
         }
 
@@ -409,7 +418,7 @@ namespace Serial
             }
         }
 
-        private short ganho_inteiro()
+        /*private short ganho_inteiro()
         {
             return (short)(numericUpDownganho.Value * 10000);
         }
@@ -417,13 +426,13 @@ namespace Serial
         private short offset_inteiro()
         {
             return (short)(numericUpDownOffset.Value * 10000);
-        }
-
+        }*/
+        
         private void buttonGravarGanho_Click(object sender, EventArgs e)
         {
             if (serialPort.IsOpen)
             {
-                serialPort.Write("x" + ganho_inteiro() + '\r');
+                serialPort.Write("x" + numericUpDownganho.Value + '\r');
             }
         }
 
@@ -431,7 +440,7 @@ namespace Serial
         {
             if (serialPort.IsOpen)
             {
-                serialPort.Write("y" + offset_inteiro() + '\r');
+                serialPort.Write("y" + numericUpDownOffset + '\r');
             }
         }
 
@@ -442,6 +451,7 @@ namespace Serial
                 rx = serialPort.ReadExisting();
                 this.Invoke(new EventHandler(trataDadoRecebido));
             }
+
         }
 
         private void trataDadoRecebido(object sender, EventArgs e)
