@@ -409,49 +409,41 @@ namespace Serial
             }
         }
 
-        
-
-        private void buttonLeituraCalib_Click(object sender, EventArgs e)
+        private short ganho_inteiro()
         {
-            serialPort.Write("x\r");
-
+            return (short)(numericUpDownganho.Value * 10000);
         }
 
-           /*if (tabControl1.SelectedTab == tabControl1.TabPages["modoCalibracao"])
-            //{
-                // if (serialPort.IsOpen)
-                //{
-                buttonLeituraCalib.Enabled = true;
-                if (checkBoxGanho.Checked)
-                {
-                    numericUpDownganho.Enabled = true;
-                    serialPort.Write("x\r");
-                }
-                else
-                {
-                    numericUpDownganho.Enabled = false;
-                }
+        private short offset_inteiro()
+        {
+            return (short)(numericUpDownOffset.Value * 10000);
+        }
 
-                if (checkBoxOffset.Checked)
-                {
-                    numericUpDownOffset.Enabled = true;
-                    serialPort.Write("y\r");
-                }
-                else
-                {
-                    numericUpDownOffset.Enabled = false;
-                }
-                //}
-           //}*/
+        private void buttonGravarGanho_Click(object sender, EventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                serialPort.Write("x" + ganho_inteiro() + '\r');
+            }
+        }
 
-        
-
+        private void buttonGravarOffset_Click(object sender, EventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                serialPort.Write("y" + offset_inteiro() + '\r');
+            }
+        }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            rx = serialPort.ReadExisting();
-            this.Invoke(new EventHandler(trataDadoRecebido));
+            if (checkBoxLer.Checked)
+            {
+                rx = serialPort.ReadExisting();
+                this.Invoke(new EventHandler(trataDadoRecebido));
+            }
         }
+
         private void trataDadoRecebido(object sender, EventArgs e)
         {
             richTextBox.AppendText(rx);

@@ -44,14 +44,12 @@
             this.LabelQuantidade = new System.Windows.Forms.Label();
             this.LabelCoomando = new System.Windows.Forms.Label();
             this.modoCalibracao = new System.Windows.Forms.TabPage();
-            this.buttonLeituraCalib = new System.Windows.Forms.Button();
+            this.labelOffset = new System.Windows.Forms.Label();
+            this.labelGanho = new System.Windows.Forms.Label();
             this.buttonGravarOffset = new System.Windows.Forms.Button();
             this.buttonGravarGanho = new System.Windows.Forms.Button();
             this.numericUpDownOffset = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownganho = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxOffset = new System.Windows.Forms.CheckBox();
-            this.checkBoxGanho = new System.Windows.Forms.CheckBox();
-            this.modoFuncional = new System.Windows.Forms.TabPage();
             this.checkBoxLer = new System.Windows.Forms.CheckBox();
             this.Clear = new System.Windows.Forms.Button();
             this.LabelLeitura = new System.Windows.Forms.Label();
@@ -72,7 +70,6 @@
             this.modoCalibracao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).BeginInit();
-            this.modoFuncional.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
@@ -88,7 +85,6 @@
             // 
             this.tabControl1.Controls.Add(this.modoGravação);
             this.tabControl1.Controls.Add(this.modoCalibracao);
-            this.tabControl1.Controls.Add(this.modoFuncional);
             this.tabControl1.Location = new System.Drawing.Point(12, 89);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -229,13 +225,12 @@
             // 
             // modoCalibracao
             // 
-            this.modoCalibracao.Controls.Add(this.buttonLeituraCalib);
+            this.modoCalibracao.Controls.Add(this.labelOffset);
+            this.modoCalibracao.Controls.Add(this.labelGanho);
             this.modoCalibracao.Controls.Add(this.buttonGravarOffset);
             this.modoCalibracao.Controls.Add(this.buttonGravarGanho);
             this.modoCalibracao.Controls.Add(this.numericUpDownOffset);
             this.modoCalibracao.Controls.Add(this.numericUpDownganho);
-            this.modoCalibracao.Controls.Add(this.checkBoxOffset);
-            this.modoCalibracao.Controls.Add(this.checkBoxGanho);
             this.modoCalibracao.Location = new System.Drawing.Point(4, 22);
             this.modoCalibracao.Name = "modoCalibracao";
             this.modoCalibracao.Size = new System.Drawing.Size(277, 367);
@@ -243,16 +238,23 @@
             this.modoCalibracao.Text = "Calibração";
             this.modoCalibracao.UseVisualStyleBackColor = true;
             // 
-            // buttonLeituraCalib
+            // labelOffset
             // 
-            this.buttonLeituraCalib.Enabled = false;
-            this.buttonLeituraCalib.Location = new System.Drawing.Point(89, 161);
-            this.buttonLeituraCalib.Name = "buttonLeituraCalib";
-            this.buttonLeituraCalib.Size = new System.Drawing.Size(91, 23);
-            this.buttonLeituraCalib.TabIndex = 6;
-            this.buttonLeituraCalib.Text = "Leitura";
-            this.buttonLeituraCalib.UseVisualStyleBackColor = true;
-            this.buttonLeituraCalib.Click += new System.EventHandler(this.buttonLeituraCalib_Click);
+            this.labelOffset.AutoSize = true;
+            this.labelOffset.Location = new System.Drawing.Point(161, 32);
+            this.labelOffset.Name = "labelOffset";
+            this.labelOffset.Size = new System.Drawing.Size(35, 13);
+            this.labelOffset.TabIndex = 8;
+            this.labelOffset.Text = "Offset";
+            // 
+            // labelGanho
+            // 
+            this.labelGanho.AutoSize = true;
+            this.labelGanho.Location = new System.Drawing.Point(17, 32);
+            this.labelGanho.Name = "labelGanho";
+            this.labelGanho.Size = new System.Drawing.Size(39, 13);
+            this.labelGanho.TabIndex = 7;
+            this.labelGanho.Text = "Ganho";
             // 
             // buttonGravarOffset
             // 
@@ -263,6 +265,7 @@
             this.buttonGravarOffset.TabIndex = 5;
             this.buttonGravarOffset.Text = "Gravar Offset";
             this.buttonGravarOffset.UseVisualStyleBackColor = true;
+            this.buttonGravarOffset.Click += new System.EventHandler(this.buttonGravarOffset_Click);
             // 
             // buttonGravarGanho
             // 
@@ -273,6 +276,7 @@
             this.buttonGravarGanho.TabIndex = 4;
             this.buttonGravarGanho.Text = "Gravar Ganho";
             this.buttonGravarGanho.UseVisualStyleBackColor = true;
+            this.buttonGravarGanho.Click += new System.EventHandler(this.buttonGravarGanho_Click);
             // 
             // numericUpDownOffset
             // 
@@ -310,41 +314,10 @@
             this.numericUpDownganho.Size = new System.Drawing.Size(87, 20);
             this.numericUpDownganho.TabIndex = 2;
             // 
-            // checkBoxOffset
-            // 
-            this.checkBoxOffset.AutoSize = true;
-            this.checkBoxOffset.Location = new System.Drawing.Point(164, 39);
-            this.checkBoxOffset.Name = "checkBoxOffset";
-            this.checkBoxOffset.Size = new System.Drawing.Size(54, 17);
-            this.checkBoxOffset.TabIndex = 1;
-            this.checkBoxOffset.Text = "Offset";
-            this.checkBoxOffset.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxGanho
-            // 
-            this.checkBoxGanho.AutoSize = true;
-            this.checkBoxGanho.Location = new System.Drawing.Point(20, 39);
-            this.checkBoxGanho.Name = "checkBoxGanho";
-            this.checkBoxGanho.Size = new System.Drawing.Size(61, 17);
-            this.checkBoxGanho.TabIndex = 2;
-            this.checkBoxGanho.Text = "Ganho ";
-            this.checkBoxGanho.UseVisualStyleBackColor = true;
-            // 
-            // modoFuncional
-            // 
-            this.modoFuncional.BackColor = System.Drawing.Color.White;
-            this.modoFuncional.Controls.Add(this.checkBoxLer);
-            this.modoFuncional.Location = new System.Drawing.Point(4, 22);
-            this.modoFuncional.Name = "modoFuncional";
-            this.modoFuncional.Padding = new System.Windows.Forms.Padding(3);
-            this.modoFuncional.Size = new System.Drawing.Size(277, 367);
-            this.modoFuncional.TabIndex = 1;
-            this.modoFuncional.Text = "Funcional";
-            // 
             // checkBoxLer
             // 
             this.checkBoxLer.AutoSize = true;
-            this.checkBoxLer.Location = new System.Drawing.Point(20, 32);
+            this.checkBoxLer.Location = new System.Drawing.Point(684, 79);
             this.checkBoxLer.Name = "checkBoxLer";
             this.checkBoxLer.Size = new System.Drawing.Size(41, 17);
             this.checkBoxLer.TabIndex = 1;
@@ -485,6 +458,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(818, 523);
+            this.Controls.Add(this.checkBoxLer);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Port);
@@ -510,8 +484,6 @@
             this.modoCalibracao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).EndInit();
-            this.modoFuncional.ResumeLayout(false);
-            this.modoFuncional.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -543,17 +515,15 @@
         private System.Windows.Forms.Label labelParity;
         private System.Windows.Forms.Label labelBaudRate;
         private System.Windows.Forms.Label labelStopBit;
-        private System.Windows.Forms.TabPage modoFuncional;
         private System.Windows.Forms.TabPage modoCalibracao;
-        private System.Windows.Forms.Button buttonLeituraCalib;
         private System.Windows.Forms.Button buttonGravarOffset;
         private System.Windows.Forms.Button buttonGravarGanho;
         private System.Windows.Forms.NumericUpDown numericUpDownOffset;
         private System.Windows.Forms.NumericUpDown numericUpDownganho;
-        private System.Windows.Forms.CheckBox checkBoxOffset;
-        private System.Windows.Forms.CheckBox checkBoxGanho;
         private System.Windows.Forms.CheckBox checkBoxLer;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label labelOffset;
+        private System.Windows.Forms.Label labelGanho;
     }
 }
 
