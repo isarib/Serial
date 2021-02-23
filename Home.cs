@@ -418,12 +418,12 @@ namespace Serial
             }
         }
 
-        /*private short ganho_inteiro()
+      private short ganho_inteiro()
         {
             return (short)(numericUpDownganho.Value * 10000);
         }
 
-        private short offset_inteiro()
+        /*private short offset_inteiro()
         {
             return (short)(numericUpDownOffset.Value * 10000);
         }*/
@@ -432,7 +432,7 @@ namespace Serial
         {
             if (serialPort.IsOpen)
             {
-                serialPort.Write("x" + numericUpDownganho.Value + '\r');
+                serialPort.Write("x" + ganho_inteiro () + '\r');
             }
         }
 
@@ -440,7 +440,7 @@ namespace Serial
         {
             if (serialPort.IsOpen)
             {
-                serialPort.Write("y" + numericUpDownOffset + '\r');
+                serialPort.Write("y" + numericUpDownOffset.Value + '\r');
             }
         }
 
