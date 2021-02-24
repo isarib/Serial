@@ -98,7 +98,7 @@ namespace Serial
                             break;
                     }
                     return true; 
-                }   
+                }
             }
             return false; 
         }
@@ -418,29 +418,31 @@ namespace Serial
             }
         }
 
-      private short ganho_inteiro()
-        {
-            return (short)(numericUpDownganho.Value * 10000);
-        }
 
         /*private short offset_inteiro()
         {
             return (short)(numericUpDownOffset.Value * 10000);
         }*/
-        
-        private void buttonGravarGanho_Click(object sender, EventArgs e)
+
+        private short ganho_inteiro()
         {
-            if (serialPort.IsOpen)
-            {
-                serialPort.Write("x" + ganho_inteiro () + '\r');
-            }
+            return (short)(numericUpDownganho.Value * 10000);
         }
+
 
         private void buttonGravarOffset_Click(object sender, EventArgs e)
         {
             if (serialPort.IsOpen)
             {
                 serialPort.Write("y" + numericUpDownOffset.Value + '\r');
+            }
+        }
+
+        private void buttonGravarGanho_Click(object sender, EventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                serialPort.Write("x" + ganho_inteiro() + '\r');
             }
         }
 
@@ -451,7 +453,6 @@ namespace Serial
                 rx = serialPort.ReadExisting();
                 this.Invoke(new EventHandler(trataDadoRecebido));
             }
-
         }
 
         private void trataDadoRecebido(object sender, EventArgs e)

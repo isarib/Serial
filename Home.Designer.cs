@@ -243,7 +243,7 @@
             // labelOffset
             // 
             this.labelOffset.AutoSize = true;
-            this.labelOffset.Location = new System.Drawing.Point(159, 32);
+            this.labelOffset.Location = new System.Drawing.Point(17, 28);
             this.labelOffset.Name = "labelOffset";
             this.labelOffset.Size = new System.Drawing.Size(35, 13);
             this.labelOffset.TabIndex = 8;
@@ -252,7 +252,7 @@
             // labelGanho
             // 
             this.labelGanho.AutoSize = true;
-            this.labelGanho.Location = new System.Drawing.Point(17, 32);
+            this.labelGanho.Location = new System.Drawing.Point(163, 28);
             this.labelGanho.Name = "labelGanho";
             this.labelGanho.Size = new System.Drawing.Size(39, 13);
             this.labelGanho.TabIndex = 7;
@@ -261,7 +261,7 @@
             // buttonGravarOffset
             // 
             this.buttonGravarOffset.Enabled = false;
-            this.buttonGravarOffset.Location = new System.Drawing.Point(162, 112);
+            this.buttonGravarOffset.Location = new System.Drawing.Point(20, 108);
             this.buttonGravarOffset.Name = "buttonGravarOffset";
             this.buttonGravarOffset.Size = new System.Drawing.Size(91, 23);
             this.buttonGravarOffset.TabIndex = 5;
@@ -272,7 +272,7 @@
             // buttonGravarGanho
             // 
             this.buttonGravarGanho.Enabled = false;
-            this.buttonGravarGanho.Location = new System.Drawing.Point(20, 112);
+            this.buttonGravarGanho.Location = new System.Drawing.Point(166, 108);
             this.buttonGravarGanho.Name = "buttonGravarGanho";
             this.buttonGravarGanho.Size = new System.Drawing.Size(87, 23);
             this.buttonGravarGanho.TabIndex = 4;
@@ -288,7 +288,7 @@
             0,
             0,
             262144});
-            this.numericUpDownOffset.Location = new System.Drawing.Point(162, 62);
+            this.numericUpDownOffset.Location = new System.Drawing.Point(20, 58);
             this.numericUpDownOffset.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -311,7 +311,7 @@
             0,
             0,
             262144});
-            this.numericUpDownganho.Location = new System.Drawing.Point(20, 62);
+            this.numericUpDownganho.Location = new System.Drawing.Point(166, 58);
             this.numericUpDownganho.Maximum = new decimal(new int[] {
             1000,
             0,
