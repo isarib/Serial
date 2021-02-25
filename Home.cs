@@ -268,7 +268,7 @@ namespace Serial
             }
         }
 
-        private bool hasInScales (string Text) //
+        private bool hasInScales (string Text) 
         {
             for (int i = 0; i < scalesList.Length; i++)
             {
@@ -443,6 +443,20 @@ namespace Serial
             if (serialPort.IsOpen)
             {
                 serialPort.Write("x" + ganho_inteiro() + '\r');
+            }
+        }
+
+        private void checkBoxLer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxLer.Checked)
+            {
+                rx = serialPort.ReadExisting();
+                this.Invoke(new EventHandler(trataDadoRecebido));
+            }
+            else
+            {
+                rx = ""; 
+                this.Invoke(new EventHandler(trataDadoRecebido));
             }
         }
 

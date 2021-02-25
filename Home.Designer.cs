@@ -337,6 +337,7 @@
             this.checkBoxLer.TabIndex = 1;
             this.checkBoxLer.Text = "Ler";
             this.checkBoxLer.UseVisualStyleBackColor = true;
+            this.checkBoxLer.CheckedChanged += new System.EventHandler(this.checkBoxLer_CheckedChanged);
             // 
             // Clear
             // 
