@@ -63,6 +63,7 @@
             this.labelParity = new System.Windows.Forms.Label();
             this.labelBaudRate = new System.Windows.Forms.Label();
             this.labelStopBit = new System.Windows.Forms.Label();
+            this.modoFuncional = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.modoGravação.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantidade)).BeginInit();
@@ -70,6 +71,7 @@
             this.modoCalibracao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).BeginInit();
+            this.modoFuncional.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
@@ -85,6 +87,7 @@
             // 
             this.tabControl1.Controls.Add(this.modoGravação);
             this.tabControl1.Controls.Add(this.modoCalibracao);
+            this.tabControl1.Controls.Add(this.modoFuncional);
             this.tabControl1.Location = new System.Drawing.Point(12, 89);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -243,7 +246,7 @@
             // labelOffset
             // 
             this.labelOffset.AutoSize = true;
-            this.labelOffset.Location = new System.Drawing.Point(17, 28);
+            this.labelOffset.Location = new System.Drawing.Point(155, 38);
             this.labelOffset.Name = "labelOffset";
             this.labelOffset.Size = new System.Drawing.Size(35, 13);
             this.labelOffset.TabIndex = 8;
@@ -252,7 +255,7 @@
             // labelGanho
             // 
             this.labelGanho.AutoSize = true;
-            this.labelGanho.Location = new System.Drawing.Point(163, 28);
+            this.labelGanho.Location = new System.Drawing.Point(17, 38);
             this.labelGanho.Name = "labelGanho";
             this.labelGanho.Size = new System.Drawing.Size(39, 13);
             this.labelGanho.TabIndex = 7;
@@ -261,7 +264,7 @@
             // buttonGravarOffset
             // 
             this.buttonGravarOffset.Enabled = false;
-            this.buttonGravarOffset.Location = new System.Drawing.Point(20, 108);
+            this.buttonGravarOffset.Location = new System.Drawing.Point(158, 118);
             this.buttonGravarOffset.Name = "buttonGravarOffset";
             this.buttonGravarOffset.Size = new System.Drawing.Size(91, 23);
             this.buttonGravarOffset.TabIndex = 5;
@@ -272,7 +275,7 @@
             // buttonGravarGanho
             // 
             this.buttonGravarGanho.Enabled = false;
-            this.buttonGravarGanho.Location = new System.Drawing.Point(166, 108);
+            this.buttonGravarGanho.Location = new System.Drawing.Point(20, 118);
             this.buttonGravarGanho.Name = "buttonGravarGanho";
             this.buttonGravarGanho.Size = new System.Drawing.Size(87, 23);
             this.buttonGravarGanho.TabIndex = 4;
@@ -288,7 +291,7 @@
             0,
             0,
             262144});
-            this.numericUpDownOffset.Location = new System.Drawing.Point(20, 58);
+            this.numericUpDownOffset.Location = new System.Drawing.Point(158, 68);
             this.numericUpDownOffset.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -311,7 +314,7 @@
             0,
             0,
             262144});
-            this.numericUpDownganho.Location = new System.Drawing.Point(166, 58);
+            this.numericUpDownganho.Location = new System.Drawing.Point(20, 68);
             this.numericUpDownganho.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -329,9 +332,7 @@
             // checkBoxLer
             // 
             this.checkBoxLer.AutoSize = true;
-            this.checkBoxLer.Checked = true;
-            this.checkBoxLer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxLer.Location = new System.Drawing.Point(684, 79);
+            this.checkBoxLer.Location = new System.Drawing.Point(20, 46);
             this.checkBoxLer.Name = "checkBoxLer";
             this.checkBoxLer.Size = new System.Drawing.Size(41, 17);
             this.checkBoxLer.TabIndex = 1;
@@ -467,13 +468,22 @@
             this.labelStopBit.TabIndex = 24;
             this.labelStopBit.Text = "Stop Bits ";
             // 
+            // modoFuncional
+            // 
+            this.modoFuncional.Controls.Add(this.checkBoxLer);
+            this.modoFuncional.Location = new System.Drawing.Point(4, 22);
+            this.modoFuncional.Name = "modoFuncional";
+            this.modoFuncional.Size = new System.Drawing.Size(277, 367);
+            this.modoFuncional.TabIndex = 3;
+            this.modoFuncional.Text = "Funcional";
+            this.modoFuncional.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(818, 523);
-            this.Controls.Add(this.checkBoxLer);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.Port);
@@ -499,6 +509,8 @@
             this.modoCalibracao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownganho)).EndInit();
+            this.modoFuncional.ResumeLayout(false);
+            this.modoFuncional.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,6 +551,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label labelOffset;
         private System.Windows.Forms.Label labelGanho;
+        private System.Windows.Forms.TabPage modoFuncional;
     }
 }
 
